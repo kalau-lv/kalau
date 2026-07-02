@@ -45,7 +45,6 @@ img:not([src]) {
 
 /* Logo gets a filter so it's visible on white bg */
 .header-scrolled .logo-img {
-    /* If logo is dark, no filter needed; if white, invert */
     filter: none;
 }
 
@@ -65,7 +64,60 @@ img:not([src]) {
     color: #2F2F33 !important;
 }
 
-/* Active Nav Link */
+/* ==================== LANGUAGE SWITCHER ==================== */
+
+/* Default state (on hero - white text) */
+.lang-switcher #lang-toggle {
+    color: #fff;
+}
+
+.lang-switcher #lang-toggle .lang-arrow {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Scrolled state (dark text) */
+.header-scrolled .lang-switcher #lang-toggle {
+    color: #2F2F33;
+    border-color: rgba(47, 47, 51, 0.15);
+}
+
+.header-scrolled .lang-switcher #lang-toggle:hover {
+    border-color: rgba(47, 47, 51, 0.3);
+    background-color: rgba(47, 47, 51, 0.04);
+}
+
+.header-scrolled .lang-switcher #lang-toggle .lang-arrow {
+    color: rgba(47, 47, 51, 0.5);
+}
+
+/* Dropdown open state */
+.lang-dropdown.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* Active lang check */
+.lang-option.active .lang-check {
+    opacity: 1 !important;
+}
+
+.lang-option.active {
+    background-color: #F3F3F3;
+}
+
+/* Mobile language switcher */
+#mobile-lang-toggle {
+    color: #fff;
+}
+
+.header-scrolled #mobile-lang-toggle {
+    color: #2F2F33;
+    border-color: rgba(47, 47, 51, 0.15);
+}
+
+/* ==================== ACTIVE NAV LINK ==================== */
+
 .nav-link {
     position: relative;
 }
@@ -177,7 +229,7 @@ img:not([src]) {
     transition: transform 0.1s linear;
 }
 
-/* ==================== SCROLL REVEAL - MODERN CLIP PATH ==================== */
+/* ==================== SCROLL REVEAL ==================== */
 .reveal-element {
     opacity: 0;
     transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -208,7 +260,6 @@ img:not([src]) {
 
 /* ==================== ABOUT SECTION ==================== */
 
-/* Clip reveal image animation */
 .clip-reveal {
     clip-path: inset(0 0 0 0);
 }
@@ -221,7 +272,6 @@ img:not([src]) {
     transform: scale(1.05);
 }
 
-/* Decorative rotation */
 .deco-rotate {
     animation: decoSpin 25s linear infinite;
 }
@@ -231,7 +281,6 @@ img:not([src]) {
     to { transform: rotate(360deg); }
 }
 
-/* Badge float */
 .badge-float {
     animation: badgeFloat 4s ease-in-out infinite;
 }
@@ -241,7 +290,6 @@ img:not([src]) {
     50% { transform: translateY(calc(-50% - 8px)); }
 }
 
-/* Stats counter */
 .stat-item {
     opacity: 0;
     transform: translateY(30px);
@@ -274,7 +322,6 @@ img:not([src]) {
     border-color: rgba(220, 204, 178, 0.3);
 }
 
-/* Accent line that reveals from left */
 .service-card::before {
     content: '';
     position: absolute;
@@ -424,13 +471,18 @@ textarea.error {
     color: #2F2F33;
 }
 
-/* ==================== SMOOTH COUNTER ==================== */
-@keyframes countPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+/* ==================== LANGUAGE TRANSITION ==================== */
+[data-i18n],
+[data-i18n-placeholder] {
+    transition: opacity 0.3s ease;
 }
 
-/* ==================== PARALLAX SECTION DIVIDERS ==================== */
+.lang-switching [data-i18n],
+.lang-switching [data-i18n-placeholder] {
+    opacity: 0;
+}
+
+/* ==================== SECTION DIVIDERS ==================== */
 .section-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(220, 204, 178, 0.3), transparent);
