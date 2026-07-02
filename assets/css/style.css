@@ -1,0 +1,505 @@
+/* ==================== KALAU ARCHITECTURE - CUSTOM STYLES ==================== */
+/* Modern, professional, trendy animations */
+
+/* ==================== GENERAL ==================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Hide empty images gracefully */
+img[src=""],
+img:not([src]) {
+    display: none;
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #DCCCB2 0%, #B8AFA1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ==================== HEADER STYLES ==================== */
+
+/* Scrolled state: white/light background with dark text */
+.header-scrolled {
+    background-color: rgba(255, 255, 255, 0.97) !important;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Nav links become dark on scroll */
+.header-scrolled .nav-link {
+    color: #2F2F33 !important;
+}
+
+.header-scrolled .nav-link:hover {
+    color: #B8AFA1 !important;
+}
+
+/* Logo gets a filter so it's visible on white bg */
+.header-scrolled .logo-img {
+    /* If logo is dark, no filter needed; if white, invert */
+    filter: none;
+}
+
+/* CTA button on scrolled */
+.header-scrolled .cta-btn {
+    background-color: #2F2F33;
+    color: #fff;
+}
+
+.header-scrolled .cta-btn:hover {
+    background-color: #DCCCB2;
+    color: #2F2F33;
+}
+
+/* Mobile menu button dark on scroll */
+.header-scrolled #mobile-menu-btn {
+    color: #2F2F33 !important;
+}
+
+/* Active Nav Link */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #DCCCB2 !important;
+}
+
+.header-scrolled .nav-link.active {
+    color: #2F2F33 !important;
+}
+
+/* ==================== HERO SECTION ==================== */
+
+/* Split text reveal - lines slide up from below */
+.hero-tag,
+.hero-line-1,
+.hero-line-2,
+.hero-subtitle,
+.hero-buttons {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.hero-tag.animate {
+    animation: textRevealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-line-1.animate {
+    animation: textRevealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.5s;
+}
+
+.hero-line-2.animate {
+    animation: textRevealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.7s;
+}
+
+.hero-subtitle.animate {
+    animation: textRevealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.9s;
+}
+
+.hero-buttons.animate {
+    animation: textRevealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1.1s;
+}
+
+@keyframes textRevealUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll line animation */
+.scroll-line-anim {
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.scroll-indicator {
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Hero parallax */
+.hero-parallax {
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* ==================== SCROLL REVEAL - MODERN CLIP PATH ==================== */
+.reveal-element {
+    opacity: 0;
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element[data-direction="up"] {
+    transform: translateY(80px);
+}
+
+.reveal-element[data-direction="left"] {
+    transform: translateX(-80px);
+}
+
+.reveal-element[data-direction="right"] {
+    transform: translateX(80px);
+}
+
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translate(0, 0) !important;
+}
+
+/* Stagger delays */
+[data-delay="100"] { transition-delay: 0.1s !important; }
+[data-delay="200"] { transition-delay: 0.2s !important; }
+[data-delay="300"] { transition-delay: 0.3s !important; }
+[data-delay="400"] { transition-delay: 0.4s !important; }
+
+/* ==================== ABOUT SECTION ==================== */
+
+/* Clip reveal image animation */
+.clip-reveal {
+    clip-path: inset(0 0 0 0);
+}
+
+.clip-reveal .img-scale {
+    transition: transform 8s ease;
+}
+
+.clip-reveal:hover .img-scale {
+    transform: scale(1.05);
+}
+
+/* Decorative rotation */
+.deco-rotate {
+    animation: decoSpin 25s linear infinite;
+}
+
+@keyframes decoSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Badge float */
+.badge-float {
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(-50%); }
+    50% { transform: translateY(calc(-50% - 8px)); }
+}
+
+/* Stats counter */
+.stat-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.counter-number {
+    display: inline-block;
+}
+
+.counter-number::after {
+    content: '+';
+}
+
+/* ==================== SERVICE CARDS ==================== */
+.service-card {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(220, 204, 178, 0.3);
+}
+
+/* Accent line that reveals from left */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, #DCCCB2, #B8AFA1);
+    border-radius: 0 0 3px 3px;
+    transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover::before {
+    height: 100%;
+}
+
+/* ==================== PROJECT CARDS ==================== */
+.project-card {
+    cursor: pointer;
+}
+
+/* ==================== PROCESS STEPS ==================== */
+.process-step {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.process-step.revealed {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================== FEATURE CARDS ==================== */
+.feature-card {
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(220, 204, 178, 0.3);
+}
+
+/* ==================== TESTIMONIALS ==================== */
+.testimonial-slider {
+    overflow: hidden;
+}
+
+.testimonial-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid transparent;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.08);
+    border-color: rgba(220, 204, 178, 0.2);
+}
+
+.slider-dot.active {
+    background-color: #2F2F33 !important;
+    width: 2rem;
+}
+
+/* ==================== FORM STYLES ==================== */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #2F2F33 !important;
+    background-color: #fff;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+input.error,
+textarea.error {
+    border-color: #ef4444 !important;
+}
+
+/* ==================== MOBILE MENU ==================== */
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#mobile-menu.open {
+    max-height: 600px;
+}
+
+.mobile-nav-link {
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: all 0.3s ease;
+}
+
+#mobile-menu.open .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#mobile-menu.open .mobile-nav-link:nth-child(1) { transition-delay: 0.05s; }
+#mobile-menu.open .mobile-nav-link:nth-child(2) { transition-delay: 0.1s; }
+#mobile-menu.open .mobile-nav-link:nth-child(3) { transition-delay: 0.15s; }
+#mobile-menu.open .mobile-nav-link:nth-child(4) { transition-delay: 0.2s; }
+#mobile-menu.open .mobile-nav-link:nth-child(5) { transition-delay: 0.25s; }
+#mobile-menu.open .mobile-nav-link:nth-child(6) { transition-delay: 0.3s; }
+#mobile-menu.open .mobile-nav-link:nth-child(7) { transition-delay: 0.35s; }
+#mobile-menu.open .mobile-nav-link:nth-child(8) { transition-delay: 0.4s; }
+
+/* ==================== BACK TO TOP ==================== */
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==================== SCROLL PROGRESS ==================== */
+#scroll-progress {
+    will-change: width;
+}
+
+/* ==================== CUSTOM SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F3F3F3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B8AFA1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2F2F33;
+}
+
+/* ==================== SELECTION ==================== */
+::selection {
+    background-color: #DCCCB2;
+    color: #2F2F33;
+}
+
+/* ==================== SMOOTH COUNTER ==================== */
+@keyframes countPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ==================== PARALLAX SECTION DIVIDERS ==================== */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(220, 204, 178, 0.3), transparent);
+}
+
+/* ==================== LINE CLAMP ==================== */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media (max-width: 768px) {
+    .reveal-element[data-direction="left"],
+    .reveal-element[data-direction="right"] {
+        transform: translateY(50px);
+    }
+    
+    .testimonial-slide {
+        width: 100% !important;
+    }
+    
+    .hero-line-1,
+    .hero-line-2 {
+        font-size: 2.8rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .testimonial-slide {
+        width: 50% !important;
+    }
+}
+
+/* ==================== PREFERS REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+    
+    .reveal-element {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .process-step {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ==================== PRINT ==================== */
+@media print {
+    header, #back-to-top, #scroll-progress, .testimonial-slider button {
+        display: none !important;
+    }
+    
+    .reveal-element, .process-step {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
