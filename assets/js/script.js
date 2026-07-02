@@ -881,4 +881,47 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
     });
 
+
+   
+
+    async function sendMessage(data){
+
+    const res = await fetch(
+        "https://kalau-contact-api.hariprasath-j-1997.workers.dev/",
+        {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+        }
+    );
+
+    if(res.ok){
+        alert("Message sent!");
+    }else{
+        alert("Something went wrong");
+    }
+
+}
+
+
+const form=document.querySelector("form");
+
+form.addEventListener("submit",async(e)=>{
+
+    e.preventDefault();
+
+    console.log(form.name.value,form.email.value,form.message.value);
+    await sendMessage({
+
+        name:form.name.value,
+
+        email:form.email.value,
+
+        message:form.message.value
+
+    });
+
+});
 });
