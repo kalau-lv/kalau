@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nav_whyus: 'Why Us',
             nav_testimonials: 'Testimonials',
             nav_contact: 'Contact',
-            nav_cta: 'Contact Us-edited',
+            nav_cta: 'Contact Us',
 
             // Hero
             hero_tag: 'Award-Winning Architecture Studio',
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nav_whyus: 'Kāpēc mēs',
             nav_testimonials: 'Atsauksmes',
             nav_contact: 'Kontakti',
-            nav_cta: 'Sazināties ar mums - edited',
+            nav_cta: 'Sazināties ar mums',
 
             // Hero
             hero_tag: 'Apbalvota arhitektūras studija',
