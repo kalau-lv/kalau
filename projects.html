@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalau Architecture | All Projects</title>
+    <meta name="description" content="Kalau Architecture - Explore our complete portfolio of architectural projects.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2F2F33',
+                        'warm-beige': '#DCCCB2',
+                        'soft-taupe': '#B8AFA1',
+                        'light-gray': '#F3F3F3',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'dm': ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ===== Projects Page Specific Styles ===== */
+
+        /* Filter button active state */
+        .filter-btn.active {
+            background-color: #2F2F33 !important;
+            color: #fff !important;
+            border-color: #2F2F33 !important;
+        }
+
+        /* Sort dropdown */
+        .sort-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+        .sort-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .sort-option.active {
+            background-color: #F3F3F3;
+            color: #2F2F33;
+            font-weight: 600;
+        }
+        .sort-option.active .sort-check {
+            opacity: 1;
+        }
+
+        /* Project card animations */
+        .project-grid-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        .project-grid-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-grid-card.hiding {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        /* No results */
+        .no-results {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Active filter count badge */
+        .filter-count {
+            animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes popIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        /* Page hero parallax */
+        .page-hero-bg {
+            transition: transform 0.1s linear;
+        }
+
+        /* ===== PROJECT DETAIL MODAL ===== */
+        #project-detail-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+        }
+        #project-detail-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        #project-detail-panel {
+            transform: translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #project-detail-overlay.open #project-detail-panel {
+            transform: translateY(0);
+        }
+
+        /* Carousel */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .carousel-dot.active {
+            background: #fff;
+            width: 24px;
+            border-radius: 4px;
+        }
+        .carousel-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .carousel-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.08);
+        }
+
+        /* Detail info key-value */
+        .detail-kv {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid #F3F3F3;
+        }
+        .detail-kv:last-child {
+            border-bottom: none;
+        }
+        .detail-kv-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #B8AFA1;
+            flex-shrink: 0;
+            margin-right: 16px;
+        }
+        .detail-kv-value {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #2F2F33;
+            text-align: right;
+        }
+
+        /* Prevent body scroll when modal open */
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Detail panel scrollbar */
+        #project-detail-panel::-webkit-scrollbar { width: 4px; }
+        #project-detail-panel::-webkit-scrollbar-track { background: transparent; }
+        #project-detail-panel::-webkit-scrollbar-thumb { background: #B8AFA1; border-radius: 2px; }
+    </style>
+</head>
+<body class="font-poppins bg-white text-charcoal antialiased">
+
+    <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-warm-beige via-soft-taupe to-warm-beige z-[100] transition-none" style="width: 0%;"></div>
+
+    <!-- ==================== STICKY HEADER ==================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 logo-link">
+                    <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-16 w-auto logo-img transition-all duration-500" />
+                </a>
+                
+                <!-- Desktop Navigation + CTA (grouped right) -->
+                <div class="hidden lg:flex items-center">
+                    <!-- Nav Links -->
+                    <div class="flex items-center space-x-10 mr-10">
+                        <a href="index.html#about" class="nav-link text-white/90 hover:text-warm-beige transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_about">About</a>
+                        <a href="index.html#services" class="nav-link text-white/90 hover:text-warm-beige transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_services">Services</a>
+                        <a href="index.html#projects" class="nav-link active text-white/90 hover:text-warm-beige transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_projects">Projects</a>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="h-5 w-px bg-white/20 mr-8 nav-divider"></div>
+                    
+                    <!-- Language Switcher + CTA -->
+                    <div class="flex items-center space-x-5">
+                        <!-- Language Switcher -->
+                        <div id="lang-switcher" class="lang-switcher relative flex items-center">
+                            <button id="lang-toggle" class="flex items-center gap-2 px-3 py-2 rounded-full border border-white/20 hover:border-white/40 transition-all duration-300 group" aria-label="Switch language">
+                                <span class="lang-flag" id="current-flag">
+                                    <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="36" height="36" rx="18" fill="#012169"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                    </svg>
+                                </span>
+                                <span class="text-xs font-semibold tracking-wider lang-label" id="current-lang-text">EN</span>
+                                <svg class="w-3 h-3 transition-transform duration-300 lang-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown -->
+                            <div id="lang-dropdown" class="lang-dropdown absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden opacity-0 invisible translate-y-2 transition-all duration-300 min-w-[180px] z-50">
+                                <div class="p-2">
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="en">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#012169"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">English</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">EN</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="lv">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#9E3039"/>
+                                            <rect y="14" width="36" height="8" fill="#fff"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">Latviešu</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">LV</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <a href="index.html#contact" class="cta-btn inline-flex items-center px-7 py-3 bg-warm-beige text-charcoal text-sm font-semibold rounded-full hover:bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 group">
+                            <span data-i18n="nav_cta">Contact Us</span>
+                            <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile: Language + Menu Button -->
+                <div class="flex lg:hidden items-center gap-3">
+                    <button id="mobile-lang-toggle" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-white/20 transition-all duration-300" aria-label="Switch language">
+                        <span class="mobile-lang-flag">
+                            <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="36" height="36" rx="18" fill="#012169"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                            </svg>
+                        </span>
+                        <span class="text-[10px] font-bold tracking-wider mobile-lang-text">EN</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-white p-2 focus:outline-none transition-colors duration-300" aria-label="Toggle menu">
+                        <svg class="w-7 h-7 hamburger-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-7 h-7 close-icon hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white/98 backdrop-blur-xl border-t border-gray-100">
+            <div class="container mx-auto px-4 py-6 space-y-1">
+                <a href="index.html#about" class="block text-charcoal hover:text-warm-beige hover:bg-warm-beige/10 transition-all py-3 px-4 rounded-lg text-lg mobile-nav-link font-medium" data-i18n="nav_about">About</a>
+                <a href="index.html#services" class="block text-charcoal hover:text-warm-beige hover:bg-warm-beige/10 transition-all py-3 px-4 rounded-lg text-lg mobile-nav-link font-medium" data-i18n="nav_services">Services</a>
+                <a href="index.html#projects" class="block text-charcoal hover:text-warm-beige hover:bg-warm-beige/10 transition-all py-3 px-4 rounded-lg text-lg mobile-nav-link font-medium" data-i18n="nav_projects">Projects</a>
+                <div class="pt-4">
+                    <a href="index.html#contact" class="inline-flex items-center px-6 py-3 bg-charcoal text-white text-sm font-semibold rounded-full">
+                        <span data-i18n="nav_cta">Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Projects" class="w-full h-full object-cover page-hero-bg scale-110">
+            <div class="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/50 to-charcoal/80"></div>
+        </div>
+        <div class="relative z-10 text-center">
+            <span class="inline-flex items-center gap-3 text-warm-beige font-medium text-sm uppercase tracking-[0.3em] mb-6">
+                <span class="w-8 h-px bg-warm-beige"></span>
+                <span data-i18n="projects_page_label">Our Portfolio</span>
+                <span class="w-8 h-px bg-warm-beige"></span>
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-semibold text-white" data-i18n="projects_page_title">All Projects</h1>
+        </div>
+        <!-- Breadcrumb -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+            <div class="flex items-center gap-2 text-sm text-white/60">
+                <a href="index.html" class="hover:text-warm-beige transition-colors" data-i18n="breadcrumb_home">Home</a>
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="text-warm-beige" data-i18n="nav_projects">Projects</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FILTER & SORT BAR ==================== -->
+    <section class="sticky top-24 z-40 bg-white/95 backdrop-blur-xl border-b border-gray-100 transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between py-5 gap-4">
+                
+                <!-- Type Filters -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-xs font-semibold text-soft-taupe uppercase tracking-wider mr-2 hidden sm:inline" data-i18n="filter_type_label">Type:</span>
+                    <button class="filter-btn active px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300" data-filter="all" data-i18n="filter_all">All</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300" data-filter="private-houses" data-i18n="filter_private">Private Houses</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300" data-filter="apartments" data-i18n="filter_apartments">Apartments</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300" data-filter="commercial" data-i18n="filter_commercial">Commercial / Mixed Use</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300" data-filter="other" data-i18n="filter_other">Other</button>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="relative flex items-center gap-3">
+                    <!-- Results count -->
+                    <span id="results-count" class="text-xs text-soft-taupe font-medium"></span>
+
+                    <div class="relative">
+                        <button id="sort-toggle" class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-charcoal hover:border-charcoal transition-all duration-300">
+                            <svg class="w-4 h-4 text-soft-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12"></path>
+                            </svg>
+                            <span id="sort-label" data-i18n="sort_new_old">New to Old</span>
+                            <svg class="w-3 h-3 transition-transform duration-300 sort-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="sort-dropdown" class="sort-dropdown absolute top-full right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden min-w-[200px] z-50">
+                            <div class="p-1.5">
+                                <button class="sort-option active w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-light-gray transition-all duration-200" data-sort="new-old">
+                                    <span data-i18n="sort_new_old">New to Old</span>
+                                    <svg class="w-3.5 h-3.5 text-charcoal sort-check opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                                </button>
+                                <button class="sort-option w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-light-gray transition-all duration-200" data-sort="old-new">
+                                    <span data-i18n="sort_old_new">Old to New</span>
+                                    <svg class="w-3.5 h-3.5 text-charcoal sort-check opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                                </button>
+                                <button class="sort-option w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:bg-light-gray transition-all duration-200" data-sort="a-z">
+                                    <span data-i18n="sort_az">Alphabetical A–Z</span>
+                                    <svg class="w-3.5 h-3.5 text-charcoal sort-check opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS GRID ==================== -->
+    <section class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <!-- Grid container — JS will render cards here -->
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Cards rendered by JavaScript -->
+            </div>
+
+            <!-- No results message -->
+            <div id="no-results" class="hidden text-center py-24">
+                <div class="w-20 h-20 bg-light-gray rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-8 h-8 text-soft-taupe" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-charcoal mb-2" data-i18n="no_results_title">No projects found</h3>
+                <p class="text-gray-500 mb-6" data-i18n="no_results_desc">Try adjusting your filters to find what you're looking for.</p>
+                <button id="clear-filters" class="inline-flex items-center px-6 py-3 bg-charcoal text-white font-medium rounded-full hover:bg-warm-beige hover:text-charcoal transition-all duration-300 text-sm">
+                    <span data-i18n="clear_filters">Clear Filters</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="py-20 lg:py-28 bg-charcoal relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-warm-beige rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-warm-beige rounded-full blur-[120px]"></div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-6" data-i18n="cta_title">Have a Project in Mind?</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10" data-i18n="cta_desc">Let's discuss how we can bring your architectural vision to life with our expertise and passion.</p>
+            <a href="index.html#contact" class="group inline-flex items-center px-8 py-4 bg-warm-beige text-charcoal font-semibold rounded-full hover:bg-white transition-all duration-500 hover:shadow-[0_20px_60px_rgba(220,204,178,0.3)]">
+                <span data-i18n="cta_button">Start Your Project</span>
+                <svg class="ml-2 w-5 h-5 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-charcoal text-white pt-20 pb-8">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+                <div class="lg:col-span-1">
+                    <a href="index.html" class="inline-block mb-6">
+                        <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-14 w-auto logo-img brightness-200" />
+                    </a>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-6" data-i18n="footer_desc">
+                        Creating modern, functional, and sustainable architectural solutions that transform visions into reality.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_links">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="footer_aboutus">About Us</span></a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_services">Services</span></a></li>
+                        <li><a href="index.html#projects" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_projects">Projects</span></a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_contact">Contact</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_services">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service1_title">Residential Design</span></a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service2_title">Commercial Design</span></a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service3_title">Interior Design</span></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_newsletter">Stay Updated</h4>
+                    <p class="text-gray-400 mb-4 text-sm" data-i18n="footer_newsletter_desc">Subscribe to our newsletter for updates and insights.</p>
+                    <form class="flex" id="footer-newsletter-form">
+                        <input type="email" data-i18n-placeholder="footer_email_placeholder" placeholder="Your email" 
+                               class="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-l-xl focus:outline-none focus:border-warm-beige/50 text-white placeholder-gray-500 transition-all duration-300 text-sm">
+                        <button type="submit" class="px-5 py-3 bg-warm-beige text-charcoal font-semibold rounded-r-xl hover:bg-white transition-colors duration-300">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-xs mb-4 md:mb-0" data-i18n="footer_copyright">&copy; 2024 Kalau Architecture. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_privacy">Privacy Policy</a>
+                        <a href="#" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== PROJECT DETAIL MODAL ==================== -->
+    <div id="project-detail-overlay" class="fixed inset-0 z-[200] bg-charcoal/60 backdrop-blur-sm">
+        <div id="project-detail-panel" class="absolute inset-0 bg-white overflow-y-auto">
+            <!-- Close Button -->
+            <button id="detail-close" class="fixed top-6 right-6 z-[210] w-12 h-12 bg-charcoal/80 backdrop-blur-xl rounded-full flex items-center justify-center text-white hover:bg-charcoal transition-all duration-300 group">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Back Button -->
+            <button id="detail-back" class="fixed top-6 left-6 z-[210] flex items-center gap-2 px-5 py-3 bg-charcoal/80 backdrop-blur-xl rounded-full text-white text-sm font-medium hover:bg-charcoal transition-all duration-300 group">
+                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L3 12m0 0l4-5m-4 5h18"></path>
+                </svg>
+                <span id="detail-back-text">All Projects</span>
+            </button>
+
+            <!-- Image Carousel -->
+            <div class="relative w-full h-[50vh] md:h-[65vh] overflow-hidden bg-charcoal">
+                <div id="carousel-track" class="carousel-track h-full">
+                    <!-- Slides injected by JS -->
+                </div>
+                <!-- Carousel Controls -->
+                <button id="carousel-prev" class="carousel-btn absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="carousel-next" class="carousel-btn absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <!-- Dots -->
+                <div id="carousel-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10"></div>
+                <!-- Image Counter -->
+                <div id="carousel-counter" class="absolute top-6 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 bg-charcoal/60 backdrop-blur-xl rounded-full text-white text-xs font-medium tracking-wider"></div>
+            </div>
+
+            <!-- Project Details Content -->
+            <div class="container mx-auto px-4 lg:px-8 py-12 lg:py-20">
+                <!-- Title + Type Badge -->
+                <div class="mb-10 lg:mb-14">
+                    <div class="flex flex-wrap items-center gap-3 mb-4">
+                        <span id="detail-type-badge" class="inline-block px-4 py-1.5 bg-warm-beige/20 text-charcoal text-xs font-semibold uppercase tracking-wider rounded-full"></span>
+                        <span id="detail-year-badge" class="inline-block px-4 py-1.5 bg-charcoal/5 text-charcoal text-xs font-semibold rounded-full"></span>
+                    </div>
+                    <h1 id="detail-title" class="text-3xl md:text-4xl lg:text-5xl font-semibold text-charcoal leading-tight"></h1>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="grid lg:grid-cols-5 gap-12 lg:gap-20">
+                    <!-- Left Column: Description -->
+                    <div class="lg:col-span-3">
+                        <h3 class="text-sm font-semibold text-soft-taupe uppercase tracking-wider mb-4" id="detail-desc-label">Project Description</h3>
+                        <div id="detail-description" class="text-gray-600 leading-relaxed text-[15px] space-y-4"></div>
+
+                        <!-- Back to projects link -->
+                        <div class="mt-12 pt-8 border-t border-gray-100">
+                            <a id="detail-back-link" href="#" class="inline-flex items-center gap-2 text-charcoal font-medium text-sm group hover:text-warm-beige transition-colors duration-300">
+                                <svg class="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L3 12m0 0l4-5m-4 5h18"></path>
+                                </svg>
+                                <span id="detail-back-link-text">Back to All Projects</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Key Values -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-light-gray/60 rounded-2xl p-8">
+                            <h3 class="text-sm font-semibold text-soft-taupe uppercase tracking-wider mb-6" id="detail-info-label">Project Information</h3>
+                            <div id="detail-key-values">
+                                <!-- Key-value rows injected by JS -->
+                            </div>
+                        </div>
+
+                        <!-- CTA inside detail -->
+                        <div class="mt-8 p-8 bg-charcoal rounded-2xl text-center">
+                            <p class="text-white/70 text-sm mb-4" id="detail-cta-text">Interested in a similar project?</p>
+                            <a href="index.html#contact" class="inline-flex items-center px-6 py-3 bg-warm-beige text-charcoal font-semibold text-sm rounded-full hover:bg-white transition-all duration-300 group">
+                                <span id="detail-cta-btn-text">Contact Us</span>
+                                <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-charcoal text-white rounded-full shadow-2xl flex items-center justify-center opacity-0 invisible transition-all duration-500 hover:bg-warm-beige hover:text-charcoal z-50 group">
+        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- ==================== PROJECTS PAGE JAVASCRIPT ==================== -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ================================================================
+        //  PROJECT DATA — Easy to add new records!
+        //  
+        //  To add a new project, simply copy one object block below and
+        //  change the values. The page will automatically render it.
+        //
+        //  Fields:
+        //    id       — unique number
+        //    title    — { en: '...', lv: '...' }
+        //    type     — 'private-houses' | 'apartments' | 'commercial' | 'other'
+        //    typeName — { en: '...', lv: '...' } — display label
+        //    image    — URL to project image
+        //    year     — number (for sorting new/old)
+        //    location — { en: '...', lv: '...' }
+        // ================================================================
+
+        // ================================================================
+        //  PROJECT DATA — Easy to add/edit records!
+        //  
+        //  To add a new project, copy one block and change values.
+        //  
+        //  Fields:
+        //    id          — unique number
+        //    title       — { en: '...', lv: '...' }
+        //    type        — 'private-houses' | 'apartments' | 'commercial' | 'other'
+        //    typeName    — { en: '...', lv: '...' }
+        //    images      — array of image URLs (first is used as thumbnail)
+        //    year        — number
+        //    location    — { en: '...', lv: '...' }
+        //    status      — { en: '...', lv: '...' }
+        //    team        — string (architect/team name)
+        //    developer   — { en: '...', lv: '...' }
+        //    description — { en: '...', lv: '...' }  (supports HTML)
+        // ================================================================
+
+        const projects = [
+            {
+                id: 1,
+                title: { en: 'Modern Villa Jūrmala', lv: 'Modernā villa Jūrmalā' },
+                type: 'private-houses',
+                typeName: { en: 'Private House', lv: 'Privātmāja' },
+                images: [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2024,
+                location: { en: 'Jūrmala, Latvia', lv: 'Jūrmala, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Private Client', lv: 'Privāts klients' },
+                description: {
+                    en: '<p>A stunning modern villa nestled among the pine forests of Jūrmala, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, natural stone cladding, and an open-plan living concept that seamlessly connects indoor and outdoor spaces. Sustainable materials and energy-efficient systems were prioritized throughout.</p>',
+                    lv: '<p>Satriecoša moderna villa, kas iekļāvusies Jūrmalas priežu mežos, projektēta harmonijā ar dabisko ainavu, vienlaikus piedāvājot luksusa mūsdienu dzīvesveidu.</p><p>Dizainā iekļauti logi no grīdas līdz griestiem, dabīgā akmens apdare un atvērtā plānojuma koncepcija, kas nemanāmi savieno iekštelpu un āra telpas. Visā projektā prioritāte piešķirta ilgtspējīgiem materiāliem un energoefektīvām sistēmām.</p>'
+                }
+            },
+            {
+                id: 2,
+                title: { en: 'Corporate Office Tower', lv: 'Korporatīvais biroja tornis' },
+                type: 'commercial',
+                typeName: { en: 'Commercial', lv: 'Komerciālais' },
+                images: [
+                    'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2024,
+                location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+                status: { en: 'In Progress', lv: 'Procesā' },
+                team: 'Kalau Studio B',
+                developer: { en: 'Baltic Development Group', lv: 'Baltic Development Group' },
+                description: {
+                    en: '<p>A landmark 18-story corporate tower in the heart of Riga\'s business district, designed with a double-skin glass facade for optimal energy performance and a striking visual presence on the city skyline.</p><p>The project includes flexible floor plates for diverse tenant requirements, a rooftop terrace, and ground-level retail and dining spaces that activate the surrounding streetscape.</p>',
+                    lv: '<p>Ievērojams 18 stāvu korporatīvais tornis Rīgas biznesa rajona sirdī, projektēts ar dubultās ādas stikla fasādi optimālai energoefektivitātei un izteiksmīgai vizuālai klātbūtnei pilsētas panorāmā.</p><p>Projekts ietver elastīgus stāvu plānus dažādām nomnieku prasībām, jumta terasi un zemākā stāva tirdzniecības un ēdināšanas telpas.</p>'
+                }
+            },
+            {
+                id: 3,
+                title: { en: 'Luxury Penthouse Suite', lv: 'Luksusa penthouse' },
+                type: 'apartments',
+                typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
+                images: [
+                    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2023,
+                location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Interiors',
+                developer: { en: 'Riga Luxury Living', lv: 'Riga Luxury Living' },
+                description: {
+                    en: '<p>A 280 m² penthouse suite on the top floor of a premium residential building, featuring panoramic views across Old Riga. The interior blends warm natural materials with refined minimalism.</p><p>Custom-designed furniture, Italian marble surfaces, and integrated smart home systems define the space. A private terrace wraps around two sides of the apartment.</p>',
+                    lv: '<p>280 m² penthouse dzīvoklis augstākajā stāvā premium dzīvojamā ēkā ar panorāmas skatu uz Vecrīgu. Interjerā apvienoti silti dabiskie materiāli ar izsmalcinātu minimālismu.</p><p>Telpu raksturo pēc pasūtījuma izgatavoti mēbeļi, itāļu marmora virsmas un integrētas viedās mājas sistēmas. Privāta terase aptver divas dzīvokļa puses.</p>'
+                }
+            },
+            {
+                id: 4,
+                title: { en: 'Mixed-Use Urban Complex', lv: 'Jauktas izmantošanas pilsētas komplekss' },
+                type: 'commercial',
+                typeName: { en: 'Mixed Use', lv: 'Jaukta izmantošana' },
+                images: [
+                    'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2023,
+                location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Urban Partners', lv: 'Urban Partners' },
+                description: {
+                    en: '<p>An ambitious mixed-use development combining residential apartments, office spaces, and ground-floor commercial areas within a cohesive architectural vision.</p><p>The complex features a central courtyard, green rooftop terraces, and a carefully considered pedestrian flow that connects the development to the surrounding urban fabric.</p>',
+                    lv: '<p>Ambiciozs jauktas izmantošanas projekts, kas apvieno dzīvojamos dzīvokļus, biroja telpas un pirmā stāva komerciālās zonas vienotā arhitektūras vīzijā.</p><p>Kompleksā iekļauts centrālais pagalms, zaļās jumta terases un rūpīgi pārdomāta gājēju plūsma.</p>'
+                }
+            },
+            {
+                id: 5,
+                title: { en: 'Seaside Family Home', lv: 'Ģimenes māja pie jūras' },
+                type: 'private-houses',
+                typeName: { en: 'Private House', lv: 'Privātmāja' },
+                images: [
+                    'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2023,
+                location: { en: 'Liepāja, Latvia', lv: 'Liepāja, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Private Client', lv: 'Privāts klients' },
+                description: {
+                    en: '<p>A contemporary family home located steps from the Baltic Sea in Liepāja. Designed around the concept of "living with nature," the home maximizes coastal views and natural light.</p><p>Weather-resistant materials, heated floors, and triple-glazed windows ensure comfort in the Baltic climate while maintaining the home\'s clean, modern aesthetic.</p>',
+                    lv: '<p>Mūsdienīga ģimenes māja dažu soļu attālumā no Baltijas jūras Liepājā. Projektēta ap koncepciju "dzīvot ar dabu", māja maksimāli izmanto piekrastes skatus un dabisko gaismu.</p><p>Laikapstākļiem izturīgi materiāli, grīdas apkure un trīskāršie logi nodrošina komfortu Baltijas klimatā.</p>'
+                }
+            },
+            {
+                id: 6,
+                title: { en: 'Garden Estate Residence', lv: 'Dārza muižas rezidence' },
+                type: 'private-houses',
+                typeName: { en: 'Private House', lv: 'Privātmāja' },
+                images: [
+                    'https://images.unsplash.com/photo-1600573472591-ee6c563a9eb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2022,
+                location: { en: 'Sigulda, Latvia', lv: 'Sigulda, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Private Client', lv: 'Privāts klients' },
+                description: {
+                    en: '<p>A graceful estate residence set within a mature garden landscape in Sigulda. The design draws inspiration from traditional Latvian country architecture while incorporating contemporary living standards.</p><p>Natural wood, stone, and copper accents blend seamlessly with the surrounding Gauja valley landscape.</p>',
+                    lv: '<p>Eleganta muižas rezidence nobriedušā dārza ainavā Siguldā. Dizains iedvesmots no tradicionālās latviešu lauku arhitektūras, iekļaujot mūsdienu dzīves standartus.</p><p>Dabīgais koks, akmens un vara akcenti harmoniski iekļaujas apkārtējā Gaujas ielejas ainavā.</p>'
+                }
+            },
+            {
+                id: 7,
+                title: { en: 'Downtown Apartment Block', lv: 'Centra dzīvokļu nams' },
+                type: 'apartments',
+                typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
+                images: [
+                    'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2022,
+                location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio B',
+                developer: { en: 'City Residence SIA', lv: 'City Residence SIA' },
+                description: {
+                    en: '<p>A 6-story residential building in Riga\'s city center, offering 24 premium apartments ranging from compact studios to spacious 3-bedroom units.</p><p>The facade features a rhythmic pattern of balconies and vertical fins that provide solar shading while creating a distinctive streetscape presence.</p>',
+                    lv: '<p>6 stāvu dzīvojamā ēka Rīgas centrā, piedāvājot 24 premium dzīvokļus no kompaktām studijām līdz plašiem 3 istabu dzīvokļiem.</p><p>Fasādē iekļauts ritmisks balkonu un vertikālu lamellu raksts, kas nodrošina saules aizsardzību, vienlaikus radot izteiksmīgu ielas ainu.</p>'
+                }
+            },
+            {
+                id: 8,
+                title: { en: 'Boutique Hotel & Spa', lv: 'Butika viesnīca un spa' },
+                type: 'commercial',
+                typeName: { en: 'Commercial', lv: 'Komerciālais' },
+                images: [
+                    'https://images.unsplash.com/photo-1590490360182-c33d955f3420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2022,
+                location: { en: 'Cēsis, Latvia', lv: 'Cēsis, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Interiors',
+                developer: { en: 'Cēsis Hospitality Group', lv: 'Cēsis Hospitality Group' },
+                description: {
+                    en: '<p>A 32-room boutique hotel with full spa facilities in the historic town of Cēsis. The design carefully integrates a new contemporary structure with the existing 19th-century stone building.</p><p>Interior spaces feature locally sourced oak, linen, and ceramic details that celebrate Latvian craft traditions in a modern context.</p>',
+                    lv: '<p>32 numuru butika viesnīca ar pilnu spa piedāvājumu vēsturiskajā Cēsu pilsētā. Dizains rūpīgi integrē jaunu mūsdienu struktūru ar esošo 19. gadsimta akmens ēku.</p><p>Interjera telpās iekļauti vietēji iegūti ozola, linu un keramikas detaļas, kas svin latviešu amatniecības tradīcijas mūsdienu kontekstā.</p>'
+                }
+            },
+            {
+                id: 9,
+                title: { en: 'Cultural Arts Center', lv: 'Kultūras un mākslas centrs' },
+                type: 'other',
+                typeName: { en: 'Cultural', lv: 'Kultūras' },
+                images: [
+                    'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2021,
+                location: { en: 'Ventspils, Latvia', lv: 'Ventspils, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Ventspils Municipality', lv: 'Ventspils pašvaldība' },
+                description: {
+                    en: '<p>A multifunctional cultural center featuring exhibition galleries, a 200-seat auditorium, artist studios, and community workshop spaces.</p><p>The building\'s sculptural form is wrapped in a perforated metal screen that filters daylight into the interior while creating dramatic shadow patterns throughout the day.</p>',
+                    lv: '<p>Daudzfunkcionāls kultūras centrs ar izstāžu galerijām, 200 vietu auditoriju, mākslinieku studijām un kopienas darbnīcu telpām.</p><p>Ēkas skulpturālo formu aptver perforēts metāla ekrāns, kas filtrē dienasgaismu interjerā, vienlaikus radot dramatisku ēnu spēli visas dienas garumā.</p>'
+                }
+            },
+            {
+                id: 10,
+                title: { en: 'Minimal Forest Cabin', lv: 'Minimālā meža māja' },
+                type: 'private-houses',
+                typeName: { en: 'Private House', lv: 'Privātmāja' },
+                images: [
+                    'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2021,
+                location: { en: 'Gauja, Latvia', lv: 'Gauja, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio A',
+                developer: { en: 'Private Client', lv: 'Privāts klients' },
+                description: {
+                    en: '<p>A compact 85 m² forest cabin designed as a retreat from urban life. The structure is elevated on steel stilts to minimize ground impact and frame views of the surrounding birch forest.</p><p>Built primarily from cross-laminated timber (CLT), the cabin exemplifies our commitment to sustainable, low-impact architecture.</p>',
+                    lv: '<p>Kompakta 85 m² meža māja, projektēta kā patvērums no pilsētas dzīves. Struktūra paaugstināta uz tērauda stabiem, lai minimizētu ietekmi uz zemi un ierāmētu apkārtējo bērzu meža skatus.</p><p>Būvēta galvenokārt no šķērslaminētas koksnes (CLT), māja ir piemērs mūsu apņēmībai ilgtspējīgai arhitektūrai.</p>'
+                }
+            },
+            {
+                id: 11,
+                title: { en: 'Riverside Apartments', lv: 'Upes dzīvokļi' },
+                type: 'apartments',
+                typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
+                images: [
+                    'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2020,
+                location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio B',
+                developer: { en: 'Riverside Development SIA', lv: 'Riverside Development SIA' },
+                description: {
+                    en: '<p>A waterfront residential development along the Daugava river, consisting of three interconnected buildings housing 68 apartments with shared amenities including a fitness center and residents\' garden.</p><p>Every apartment is oriented to capture river views, with generous balconies and floor-to-ceiling windows.</p>',
+                    lv: '<p>Dzīvojamais projekts Daugavas krastmalā, kas sastāv no trim savienotām ēkām ar 68 dzīvokļiem un kopīgām ērtībām, tostarp fitnesa centru un iedzīvotāju dārzu.</p><p>Katrs dzīvoklis orientēts, lai uztvertu upes skatus, ar plašiem balkoniem un logiem no grīdas līdz griestiem.</p>'
+                }
+            },
+            {
+                id: 12,
+                title: { en: 'Sports & Wellness Center', lv: 'Sporta un veselības centrs' },
+                type: 'other',
+                typeName: { en: 'Recreational', lv: 'Atpūtas' },
+                images: [
+                    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
+                    'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                ],
+                year: 2020,
+                location: { en: 'Jūrmala, Latvia', lv: 'Jūrmala, Latvija' },
+                status: { en: 'Completed', lv: 'Pabeigts' },
+                team: 'Kalau Studio B',
+                developer: { en: 'Jūrmala Sports Foundation', lv: 'Jūrmalas Sporta fonds' },
+                description: {
+                    en: '<p>A state-of-the-art sports and wellness facility featuring an Olympic-size swimming pool, gym, yoga studios, and a thermal spa area.</p><p>The building\'s undulating roof form is inspired by Baltic Sea waves. Extensive use of natural daylight reduces energy consumption while creating uplifting interior environments.</p>',
+                    lv: '<p>Modernskākais sporta un veselības centrs ar olimpisko izmēru peldbaseinu, sporta zāli, jogas studijām un termālo spa zonu.</p><p>Ēkas viļņveidīgā jumta forma iedvesmota no Baltijas jūras viļņiem. Plašā dabiskās dienasgaismas izmantošana samazina enerģijas patēriņu, vienlaikus radot iedvesmojošu iekštelpu vidi.</p>'
+                }
+            },
+        ];
+
+        // ================================================================
+        //  TRANSLATIONS (projects page specific)
+        // ================================================================
+        const pageTranslations = {
+            en: {
+                // Page
+                projects_page_label: 'Our Portfolio',
+                projects_page_title: 'All Projects',
+                breadcrumb_home: 'Home',
+
+                // Filters
+                filter_type_label: 'Type:',
+                filter_all: 'All',
+                filter_private: 'Private Houses',
+                filter_apartments: 'Apartments',
+                filter_commercial: 'Commercial / Mixed Use',
+                filter_other: 'Other',
+
+                // Sort
+                sort_new_old: 'New to Old',
+                sort_old_new: 'Old to New',
+                sort_az: 'Alphabetical A–Z',
+
+                // Results
+                results_text: 'projects',
+                no_results_title: 'No projects found',
+                no_results_desc: 'Try adjusting your filters to find what you\'re looking for.',
+                clear_filters: 'Clear Filters',
+
+                // Detail view
+                detail_back: 'All Projects',
+                detail_back_link: 'Back to All Projects',
+                detail_desc_label: 'Project Description',
+                detail_info_label: 'Project Information',
+                detail_cta_text: 'Interested in a similar project?',
+                detail_cta_btn: 'Contact Us',
+                detail_kv_location: 'Location',
+                detail_kv_year: 'Year',
+                detail_kv_status: 'Status',
+                detail_kv_team: 'Team',
+                detail_kv_developer: 'Developer',
+                detail_kv_type: 'Type',
+
+                // CTA
+                cta_title: 'Have a Project in Mind?',
+                cta_desc: 'Let\'s discuss how we can bring your architectural vision to life with our expertise and passion.',
+                cta_button: 'Start Your Project',
+
+                // Shared (duplicated from main for standalone use)
+                nav_about: 'About',
+                nav_services: 'Services',
+                nav_projects: 'Projects',
+                nav_contact: 'Contact',
+                nav_cta: 'Contact Us',
+                service1_title: 'Residential Design',
+                service2_title: 'Commercial Design',
+                service3_title: 'Interior Design',
+                footer_desc: 'Creating modern, functional, and sustainable architectural solutions that transform visions into reality.',
+                footer_links: 'Quick Links',
+                footer_aboutus: 'About Us',
+                footer_services: 'Services',
+                footer_newsletter: 'Stay Updated',
+                footer_newsletter_desc: 'Subscribe to our newsletter for updates and insights.',
+                footer_email_placeholder: 'Your email',
+                footer_copyright: '© 2024 Kalau Architecture. All rights reserved.',
+                footer_privacy: 'Privacy Policy',
+                footer_terms: 'Terms of Service',
+            },
+            lv: {
+                // Page
+                projects_page_label: 'Mūsu portfolio',
+                projects_page_title: 'Visi projekti',
+                breadcrumb_home: 'Sākums',
+
+                // Filters
+                filter_type_label: 'Veids:',
+                filter_all: 'Visi',
+                filter_private: 'Privātmājas',
+                filter_apartments: 'Dzīvokļi',
+                filter_commercial: 'Komerciālais / Jaukts',
+                filter_other: 'Citi',
+
+                // Sort
+                sort_new_old: 'Jaunākais vispirms',
+                sort_old_new: 'Vecākais vispirms',
+                sort_az: 'Alfabētiski A–Z',
+
+                // Results
+                results_text: 'projekti',
+                no_results_title: 'Projekti nav atrasti',
+                no_results_desc: 'Mēģiniet mainīt filtrus, lai atrastu meklēto.',
+                clear_filters: 'Notīrīt filtrus',
+
+                // Detail view
+                detail_back: 'Visi projekti',
+                detail_back_link: 'Atpakaļ uz visiem projektiem',
+                detail_desc_label: 'Projekta apraksts',
+                detail_info_label: 'Projekta informācija',
+                detail_cta_text: 'Interesē līdzīgs projekts?',
+                detail_cta_btn: 'Sazināties ar mums',
+                detail_kv_location: 'Atrašanās vieta',
+                detail_kv_year: 'Gads',
+                detail_kv_status: 'Statuss',
+                detail_kv_team: 'Komanda',
+                detail_kv_developer: 'Attīstītājs',
+                detail_kv_type: 'Veids',
+
+                // CTA
+                cta_title: 'Ir projekts prātā?',
+                cta_desc: 'Apspriedīsim, kā mēs varam realizēt jūsu arhitektūras vīziju ar mūsu pieredzi un aizrautību.',
+                cta_button: 'Sākt savu projektu',
+
+                // Shared
+                nav_about: 'Par mums',
+                nav_services: 'Pakalpojumi',
+                nav_projects: 'Projekti',
+                nav_contact: 'Kontakti',
+                nav_cta: 'Sazināties ar mums',
+                service1_title: 'Dzīvojamo māju dizains',
+                service2_title: 'Komerciālais dizains',
+                service3_title: 'Interjera dizains',
+                footer_desc: 'Radām modernas, funkcionālas un ilgtspējīgas arhitektūras risinājumus, kas pārvērš vīzijas realitātē.',
+                footer_links: 'Ātrās saites',
+                footer_aboutus: 'Par mums',
+                footer_services: 'Pakalpojumi',
+                footer_newsletter: 'Jaunumi',
+                footer_newsletter_desc: 'Abonējiet mūsu jaunumu vēstuli atjauninājumiem un ieskatiem.',
+                footer_email_placeholder: 'Jūsu e-pasts',
+                footer_copyright: '© 2024 Kalau Architecture. Visas tiesības aizsargātas.',
+                footer_privacy: 'Privātuma politika',
+                footer_terms: 'Lietošanas noteikumi',
+            }
+        };
+
+
+        // ================================================================
+        //  STATE
+        // ================================================================
+        let currentFilter = 'all';
+        let currentSort = 'new-old';
+        let currentLang = localStorage.getItem('kalau-lang') || 'en';
+
+
+        // ================================================================
+        //  LANGUAGE SYSTEM
+        // ================================================================
+        const flags = {
+            en: `<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#012169"/><path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/><path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/><path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/><path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/></svg>`,
+            lv: `<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#9E3039"/><rect y="14" width="36" height="8" fill="#fff"/></svg>`
+        };
+
+        function applyLanguage(lang, animate) {
+            const dict = pageTranslations[lang];
+            if (!dict) return;
+
+            if (animate) document.body.classList.add('lang-switching');
+
+            const apply = () => {
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (dict[key] !== undefined) el.innerHTML = dict[key];
+                });
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.getAttribute('data-i18n-placeholder');
+                    if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+                });
+                document.documentElement.lang = lang === 'lv' ? 'lv' : 'en';
+            };
+
+            if (animate) {
+                setTimeout(() => { apply(); renderProjects(); setTimeout(() => document.body.classList.remove('lang-switching'), 50); }, 300);
+            } else {
+                apply();
+            }
+
+            // Update UI
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+            });
+            const cf = document.getElementById('current-flag');
+            const ct = document.getElementById('current-lang-text');
+            const mf = document.querySelector('.mobile-lang-flag');
+            const mt = document.querySelector('.mobile-lang-text');
+            if (cf) cf.innerHTML = flags[lang];
+            if (ct) ct.textContent = lang.toUpperCase();
+            if (mf) mf.innerHTML = flags[lang];
+            if (mt) mt.textContent = lang.toUpperCase();
+
+            currentLang = lang;
+            localStorage.setItem('kalau-lang', lang);
+        }
+
+        // Desktop language dropdown
+        const langToggle = document.getElementById('lang-toggle');
+        const langDropdown = document.getElementById('lang-dropdown');
+        if (langToggle && langDropdown) {
+            langToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('open');
+                const arrow = langToggle.querySelector('.lang-arrow');
+                if (arrow) arrow.style.transform = langDropdown.classList.contains('open') ? 'rotate(180deg)' : '';
+            });
+            langDropdown.querySelectorAll('.lang-option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    const lang = opt.getAttribute('data-lang');
+                    if (lang !== currentLang) applyLanguage(lang, true);
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = '';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = '';
+                }
+            });
+        }
+
+        // Mobile language toggle
+        const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', () => {
+                applyLanguage(currentLang === 'en' ? 'lv' : 'en', true);
+            });
+        }
+
+
+        // ================================================================
+        //  RENDER PROJECTS
+        // ================================================================
+        const grid = document.getElementById('projects-grid');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('results-count');
+
+        function getFilteredSorted() {
+            // Filter
+            let filtered = currentFilter === 'all'
+                ? [...projects]
+                : projects.filter(p => p.type === currentFilter);
+
+            // Sort
+            if (currentSort === 'new-old') {
+                filtered.sort((a, b) => b.year - a.year);
+            } else if (currentSort === 'old-new') {
+                filtered.sort((a, b) => a.year - b.year);
+            } else if (currentSort === 'a-z') {
+                filtered.sort((a, b) => {
+                    const nameA = a.title[currentLang] || a.title.en;
+                    const nameB = b.title[currentLang] || b.title.en;
+                    return nameA.localeCompare(nameB);
+                });
+            }
+
+            return filtered;
+        }
+
+        function renderProjects() {
+            const data = getFilteredSorted();
+            const dict = pageTranslations[currentLang];
+
+            // Update results count
+            resultsCount.textContent = `${data.length} ${dict.results_text}`;
+
+            if (data.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+
+            grid.innerHTML = data.map((p, i) => {
+                const title = p.title[currentLang] || p.title.en;
+                const typeName = p.typeName[currentLang] || p.typeName.en;
+                const location = p.location[currentLang] || p.location.en;
+                return `
+                <div class="project-grid-card group" data-id="${p.id}" style="transition-delay: ${i * 80}ms;" onclick="openProjectDetail(${p.id})">
+                    <div class="relative overflow-hidden rounded-2xl bg-light-gray">
+                        <img src="${p.images[0]}" alt="${title}" 
+                             class="w-full h-[380px] object-cover transition-all duration-[800ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:scale-105"
+                             loading="lazy">
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <!-- Type badge -->
+                        <div class="absolute top-5 left-5">
+                            <span class="inline-block px-3 py-1 bg-white/90 backdrop-blur-sm text-charcoal text-[11px] font-semibold uppercase tracking-wider rounded-full">
+                                ${typeName}
+                            </span>
+                        </div>
+                        <!-- Year badge -->
+                        <div class="absolute top-5 right-5">
+                            <span class="inline-block px-3 py-1 bg-charcoal/70 backdrop-blur-sm text-white text-[11px] font-semibold rounded-full">
+                                ${p.year}
+                            </span>
+                        </div>
+                        <!-- Bottom info -->
+                        <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                            <h3 class="text-white text-xl font-semibold mb-1">${title}</h3>
+                            <div class="flex items-center gap-1.5 text-white/70 text-sm">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                ${location}
+                            </div>
+                        </div>
+                        <!-- Arrow icon -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 scale-75 group-hover:scale-100">
+                            <span class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl cursor-pointer hover:bg-warm-beige transition-colors duration-300">
+                                <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"></path></svg>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Info below card -->
+                    <div class="pt-4 px-1">
+                        <h3 class="text-lg font-semibold text-charcoal group-hover:text-soft-taupe transition-colors duration-300">${title}</h3>
+                        <div class="flex items-center justify-between mt-1">
+                            <span class="text-sm text-soft-taupe">${typeName}</span>
+                            <span class="text-sm text-soft-taupe font-dm">${p.year}</span>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // Staggered reveal animation
+            requestAnimationFrame(() => {
+                const cards = grid.querySelectorAll('.project-grid-card');
+                cards.forEach((card, i) => {
+                    setTimeout(() => card.classList.add('visible'), i * 80);
+                });
+            });
+        }
+
+
+        // ================================================================
+        //  FILTER BUTTONS
+        // ================================================================
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                if (filter === currentFilter) return;
+
+                currentFilter = filter;
+
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Re-render
+                renderProjects();
+            });
+        });
+
+
+        // ================================================================
+        //  SORT DROPDOWN
+        // ================================================================
+        const sortToggle = document.getElementById('sort-toggle');
+        const sortDropdown = document.getElementById('sort-dropdown');
+        const sortLabel = document.getElementById('sort-label');
+
+        sortToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sortDropdown.classList.toggle('open');
+            const arrow = sortToggle.querySelector('.sort-arrow');
+            if (arrow) arrow.style.transform = sortDropdown.classList.contains('open') ? 'rotate(180deg)' : '';
+        });
+
+        document.querySelectorAll('.sort-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                const sort = opt.getAttribute('data-sort');
+                if (sort === currentSort) {
+                    sortDropdown.classList.remove('open');
+                    return;
+                }
+
+                currentSort = sort;
+
+                // Update active
+                document.querySelectorAll('.sort-option').forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+
+                // Update label text
+                const i18nKey = sort === 'new-old' ? 'sort_new_old' : sort === 'old-new' ? 'sort_old_new' : 'sort_az';
+                sortLabel.setAttribute('data-i18n', i18nKey);
+                sortLabel.textContent = pageTranslations[currentLang][i18nKey];
+
+                sortDropdown.classList.remove('open');
+                const arrow = sortToggle.querySelector('.sort-arrow');
+                if (arrow) arrow.style.transform = '';
+
+                renderProjects();
+            });
+        });
+
+        // Close sort dropdown on outside click
+        document.addEventListener('click', (e) => {
+            if (!sortToggle.contains(e.target) && !sortDropdown.contains(e.target)) {
+                sortDropdown.classList.remove('open');
+                const arrow = sortToggle.querySelector('.sort-arrow');
+                if (arrow) arrow.style.transform = '';
+            }
+        });
+
+
+        // ================================================================
+        //  CLEAR FILTERS
+        // ================================================================
+        const clearBtn = document.getElementById('clear-filters');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                currentFilter = 'all';
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                renderProjects();
+            });
+        }
+
+
+        // ================================================================
+        //  HEADER / SCROLL / BACK TO TOP
+        // ================================================================
+        const header = document.getElementById('header');
+        const backToTopBtn = document.getElementById('back-to-top');
+        const scrollProgress = document.getElementById('scroll-progress');
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function onScroll() {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // Sticky header
+                    if (lastScrollY > 80) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                    // Back to top
+                    if (lastScrollY > 600) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                    // Progress bar
+                    const docH = document.documentElement.scrollHeight - window.innerHeight;
+                    scrollProgress.style.width = (lastScrollY / docH) * 100 + '%';
+                    // Hero parallax
+                    const heroBg = document.querySelector('.page-hero-bg');
+                    if (heroBg && lastScrollY < window.innerHeight) {
+                        heroBg.style.transform = `translateY(${lastScrollY * 0.3}px) scale(1.1)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+
+        // ================================================================
+        //  MOBILE MENU
+        // ================================================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            const hamburgerIcon = mobileMenuBtn.querySelector('.hamburger-icon');
+            const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('open');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('open');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        }
+
+
+        // ================================================================
+        //  NEWSLETTER FORM
+        // ================================================================
+        const nlForm = document.getElementById('footer-newsletter-form');
+        if (nlForm) {
+            nlForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const inp = nlForm.querySelector('input[type="email"]');
+                if (inp.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)) {
+                    const btn = nlForm.querySelector('button');
+                    const orig = btn.innerHTML;
+                    btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                    setTimeout(() => { btn.innerHTML = orig; inp.value = ''; }, 2000);
+                }
+            });
+        }
+
+
+        // ================================================================
+        //  PAGE LOAD ANIMATION
+        // ================================================================
+        document.body.style.opacity = '0';
+        window.addEventListener('load', () => {
+            document.body.style.transition = 'opacity 0.6s cubic-bezier(0.16,1,0.3,1)';
+            document.body.style.opacity = '1';
+        });
+
+
+        // ================================================================
+        //  PROJECT DETAIL VIEW
+        // ================================================================
+        const overlay = document.getElementById('project-detail-overlay');
+        const detailPanel = document.getElementById('project-detail-panel');
+        const carouselTrack = document.getElementById('carousel-track');
+        const carouselDots = document.getElementById('carousel-dots');
+        const carouselCounter = document.getElementById('carousel-counter');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const detailClose = document.getElementById('detail-close');
+        const detailBackBtn = document.getElementById('detail-back');
+
+        let carouselIndex = 0;
+        let carouselTotal = 0;
+        let carouselAutoInterval = null;
+        let touchStartX = 0;
+
+        // Make openProjectDetail global so onclick in rendered HTML can call it
+        window.openProjectDetail = function(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            const dict = pageTranslations[currentLang] || pageTranslations.en;
+            const lang = currentLang;
+
+            // Populate carousel
+            carouselTotal = project.images.length;
+            carouselIndex = 0;
+            carouselTrack.innerHTML = project.images.map((img, i) => `
+                <div class="carousel-slide">
+                    <img src="${img}" alt="${project.title[lang] || project.title.en} - Image ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">
+                </div>
+            `).join('');
+
+            // Dots
+            carouselDots.innerHTML = project.images.map((_, i) => `
+                <button class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Image ${i + 1}"></button>
+            `).join('');
+
+            // Dot click handlers
+            carouselDots.querySelectorAll('.carousel-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    carouselIndex = parseInt(dot.dataset.index);
+                    updateCarousel();
+                });
+            });
+
+            updateCarouselCounter();
+
+            // Title & badges
+            document.getElementById('detail-title').textContent = project.title[lang] || project.title.en;
+            document.getElementById('detail-type-badge').textContent = project.typeName[lang] || project.typeName.en;
+            document.getElementById('detail-year-badge').textContent = project.year;
+
+            // Description
+            document.getElementById('detail-desc-label').textContent = dict.detail_desc_label || 'Project Description';
+            document.getElementById('detail-description').innerHTML = project.description[lang] || project.description.en;
+
+            // Info label
+            document.getElementById('detail-info-label').textContent = dict.detail_info_label || 'Project Information';
+
+            // Key Values
+            const kvContainer = document.getElementById('detail-key-values');
+            const kvData = [
+                { label: dict.detail_kv_location || 'Location', value: project.location[lang] || project.location.en },
+                { label: dict.detail_kv_year || 'Year', value: project.year },
+                { label: dict.detail_kv_status || 'Status', value: project.status[lang] || project.status.en },
+                { label: dict.detail_kv_team || 'Team', value: project.team },
+                { label: dict.detail_kv_developer || 'Developer', value: project.developer[lang] || project.developer.en },
+                { label: dict.detail_kv_type || 'Type', value: project.typeName[lang] || project.typeName.en }
+            ];
+            kvContainer.innerHTML = kvData.map(kv => `
+                <div class="detail-kv">
+                    <span class="detail-kv-label">${kv.label}</span>
+                    <span class="detail-kv-value">${kv.value}</span>
+                </div>
+            `).join('');
+
+            // Back button text
+            document.getElementById('detail-back-text').textContent = dict.detail_back || 'All Projects';
+            document.getElementById('detail-back-link-text').textContent = dict.detail_back_link || 'Back to All Projects';
+
+            // CTA text
+            document.getElementById('detail-cta-text').textContent = dict.detail_cta_text || 'Interested in a similar project?';
+            document.getElementById('detail-cta-btn-text').textContent = dict.detail_cta_btn || 'Contact Us';
+
+            // Open modal
+            document.body.classList.add('modal-open');
+            overlay.classList.add('open');
+            detailPanel.scrollTop = 0;
+
+            // Start auto-advance carousel
+            startCarouselAuto();
+        };
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            updateCarouselCounter();
+            // Update dots
+            carouselDots.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === carouselIndex);
+            });
+        }
+
+        function updateCarouselCounter() {
+            carouselCounter.textContent = `${carouselIndex + 1} / ${carouselTotal}`;
+        }
+
+        function nextSlide() {
+            carouselIndex = (carouselIndex + 1) % carouselTotal;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            carouselIndex = (carouselIndex - 1 + carouselTotal) % carouselTotal;
+            updateCarousel();
+        }
+
+        function startCarouselAuto() {
+            stopCarouselAuto();
+            carouselAutoInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopCarouselAuto() {
+            if (carouselAutoInterval) clearInterval(carouselAutoInterval);
+        }
+
+        carouselNext.addEventListener('click', () => { stopCarouselAuto(); nextSlide(); startCarouselAuto(); });
+        carouselPrev.addEventListener('click', () => { stopCarouselAuto(); prevSlide(); startCarouselAuto(); });
+
+        // Touch/swipe on carousel
+        carouselTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopCarouselAuto();
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                diff > 0 ? nextSlide() : prevSlide();
+            }
+            startCarouselAuto();
+        }, { passive: true });
+
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.classList.contains('open')) return;
+            if (e.key === 'ArrowLeft') { stopCarouselAuto(); prevSlide(); startCarouselAuto(); }
+            if (e.key === 'ArrowRight') { stopCarouselAuto(); nextSlide(); startCarouselAuto(); }
+            if (e.key === 'Escape') closeProjectDetail();
+        });
+
+        // Close modal
+        function closeProjectDetail() {
+            overlay.classList.remove('open');
+            stopCarouselAuto();
+            setTimeout(() => {
+                document.body.classList.remove('modal-open');
+            }, 400);
+        }
+
+        detailClose.addEventListener('click', closeProjectDetail);
+        detailBackBtn.addEventListener('click', closeProjectDetail);
+        document.getElementById('detail-back-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            closeProjectDetail();
+        });
+
+        // Close on overlay click (not panel content)
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeProjectDetail();
+        });
+
+
+        // ================================================================
+        //  INITIALIZE
+        // ================================================================
+        applyLanguage(currentLang, false);
+        renderProjects();
+
+    });
+    </script>
+
+</body>
+</html>

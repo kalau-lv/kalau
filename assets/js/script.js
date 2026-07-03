@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nav_whyus: 'Why Us',
             nav_testimonials: 'Testimonials',
             nav_contact: 'Contact',
-            nav_cta: "Let's Talk",
+            nav_cta: 'Contact Us',
 
             // Hero
             hero_tag: 'Award-Winning Architecture Studio',
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             contact_subtitle: "Ready to start your project? Let's discuss how we can bring your architectural vision to life.",
             contact_info_title: "Let's Build Something Amazing",
             contact_info_desc: "Have a project in mind or want to learn more about our services? We'd love to hear from you.",
-            contact_office: 'Our Office',
+            contact_legal: 'Company Information',
             contact_email: 'Email Us',
             contact_phone: 'Call Us',
             contact_follow: 'Follow Us',
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
             nav_whyus: 'Kāpēc mēs',
             nav_testimonials: 'Atsauksmes',
             nav_contact: 'Kontakti',
-            nav_cta: 'Sazināties',
+            nav_cta: 'Sazināties ar mums',
 
             // Hero
             hero_tag: 'Apbalvota arhitektūras studija',
@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function () {
             contact_subtitle: 'Gatavi sākt savu projektu? Apspriedīsim, kā mēs varam realizēt jūsu arhitektūras vīziju.',
             contact_info_title: 'Radīsim ko izcilu kopā',
             contact_info_desc: 'Vai jums ir projekts prātā vai vēlaties uzzināt vairāk par mūsu pakalpojumiem? Mēs labprāt dzirdētu no jums.',
-            contact_office: 'Mūsu birojs',
+            contact_legal: 'Uzņēmuma informācija',
             contact_email: 'Rakstiet mums',
             contact_phone: 'Zvaniet mums',
             contact_follow: 'Sekojiet mums',
