@@ -578,17 +578,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ==================== MOBILE MENU ====================
     function toggleMobileMenu() {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.classList.toggle('open');
-        hamburgerIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
+        const isOpen = mobileMenu.classList.contains('open');
+        if (isOpen) {
+            mobileMenu.classList.remove('open');
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        } else {
+            mobileMenu.classList.add('open');
+            hamburgerIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+        }
     }
 
     mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
             mobileMenu.classList.remove('open');
             hamburgerIcon.classList.remove('hidden');
             closeIcon.classList.add('hidden');

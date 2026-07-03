@@ -177,13 +177,15 @@ input.error, textarea.error { border-color: #ef4444 !important; }
 
 /* ==================== MOBILE MENU ==================== */
 #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-#mobile-menu.open { max-height: 600px; }
+#mobile-menu.open { max-height: 800px; }
 .mobile-nav-link { opacity: 0; transform: translateY(-8px); transition: all 0.3s ease; }
 #mobile-menu.open .mobile-nav-link { opacity: 1; transform: translateY(0); }
 #mobile-menu.open .mobile-nav-link:nth-child(1) { transition-delay: 0.05s; }
 #mobile-menu.open .mobile-nav-link:nth-child(2) { transition-delay: 0.1s; }
 #mobile-menu.open .mobile-nav-link:nth-child(3) { transition-delay: 0.15s; }
 #mobile-menu.open .mobile-nav-link:nth-child(4) { transition-delay: 0.2s; }
+#mobile-menu.open .mobile-nav-link:nth-child(5) { transition-delay: 0.25s; }
+#mobile-menu.open .mobile-nav-link:nth-child(6) { transition-delay: 0.3s; }
 
 /* ==================== BACK TO TOP ==================== */
 #back-to-top { opacity: 0; visibility: hidden; }
