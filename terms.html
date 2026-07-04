@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalau Architecture | Terms of Service</title>
+    <meta name="description" content="Kalau Architecture - Terms of Service governing the use of our architectural services and website.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2F2F33',
+                        'warm-beige': '#DCCCB2',
+                        'soft-taupe': '#B8AFA1',
+                        'light-gray': '#F3F3F3',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'dm': ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* ===== Terms Page Specific Styles ===== */
+
+        /* Table of contents link active state */
+        .toc-link {
+            transition: all 0.3s ease;
+            border-left: 2px solid transparent;
+        }
+        .toc-link:hover,
+        .toc-link.active {
+            color: #2F2F33;
+            border-left-color: #DCCCB2;
+            background-color: rgba(220, 204, 178, 0.08);
+        }
+
+        /* Section reveal animation */
+        .terms-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .terms-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scrollbar for TOC sidebar */
+        .toc-sidebar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .toc-sidebar::-webkit-scrollbar-thumb {
+            background: #DCCCB2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-white text-charcoal antialiased">
+
+    <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-warm-beige via-soft-taupe to-warm-beige z-[100] transition-none" style="width: 0%;"></div>
+
+    <!-- ==================== STICKY HEADER ==================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 header-scrolled">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 logo-link">
+                    <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-16 w-auto logo-img transition-all duration-500" />
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center">
+                    <div class="flex items-center space-x-10 mr-10">
+                        <a href="index.html#about" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_about">About</a>
+                        <a href="index.html#services" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_services">Services</a>
+                        <a href="index.html#projects" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_projects">Projects</a>
+                    </div>
+                    <div class="h-5 w-px bg-charcoal/10 mr-8 nav-divider"></div>
+                    <div class="flex items-center space-x-5">
+                        <!-- Language Switcher -->
+                        <div id="lang-switcher" class="lang-switcher relative flex items-center">
+                            <button id="lang-toggle" class="flex items-center gap-2 px-3 py-2 rounded-full border border-charcoal/10 hover:border-charcoal/30 transition-all duration-300 group" aria-label="Switch language">
+                                <span class="lang-flag" id="current-flag">
+                                    <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="36" height="36" rx="18" fill="#012169"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                    </svg>
+                                </span>
+                                <span class="text-xs font-semibold tracking-wider lang-label text-charcoal" id="current-lang-text">EN</span>
+                                <svg class="w-3 h-3 transition-transform duration-300 lang-arrow text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="lang-dropdown" class="lang-dropdown absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden opacity-0 invisible translate-y-2 transition-all duration-300 min-w-[180px] z-50">
+                                <div class="p-2">
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="en">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#012169"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">English</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">EN</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="lv">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#9E3039"/>
+                                            <rect y="14" width="36" height="8" fill="#fff"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">Latviešu</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">LV</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CTA Button -->
+                        <a href="index.html#contact" class="group flex items-center px-7 py-3.5 bg-charcoal text-white rounded-full font-medium text-sm hover:bg-warm-beige hover:text-charcoal transition-all duration-500 hover:shadow-lg">
+                            <span data-i18n="nav_contact">Contact</span>
+                            <svg class="ml-2 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile: Language + Menu Button -->
+                <div class="flex lg:hidden items-center gap-3">
+                    <button id="mobile-lang-toggle" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-charcoal/15 transition-all duration-300" aria-label="Switch language">
+                        <span class="mobile-lang-flag">
+                            <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="36" height="36" rx="18" fill="#012169"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                            </svg>
+                        </span>
+                        <span class="text-[10px] font-bold tracking-wider mobile-lang-text">EN</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-charcoal p-2 focus:outline-none transition-colors duration-300" aria-label="Toggle menu">
+                        <svg class="w-7 h-7 hamburger-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-7 h-7 close-icon hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100">
+            <div class="container mx-auto px-4 py-6 space-y-1">
+                <a href="index.html#about" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_about">About</a>
+                <a href="index.html#services" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_services">Services</a>
+                <a href="index.html#projects" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_projects">Projects</a>
+                <a href="teams.html" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_team">Team</a>
+                <div class="pt-4 mt-2 border-t border-gray-100">
+                    <a href="index.html#contact" class="flex items-center justify-center px-6 py-3.5 bg-charcoal text-white rounded-full font-medium hover:bg-warm-beige hover:text-charcoal transition-all duration-500">
+                        <span data-i18n="nav_contact">Contact</span>
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="relative h-[45vh] min-h-[360px] flex items-end overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-charcoal"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/60 to-charcoal/90"></div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 pb-16">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-sm mb-6">
+                    <a href="index.html" class="text-gray-400 hover:text-warm-beige transition-colors duration-300" data-i18n="nav_home">Home</a>
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    <span class="text-warm-beige" data-i18n="terms_breadcrumb">Terms of Service</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight" data-i18n="terms_hero_title">Terms of Service</h1>
+                <p class="text-gray-400 mt-4 text-lg" data-i18n="terms_last_updated">Last updated: January 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TERMS CONTENT ==================== -->
+    <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                
+                <!-- Sticky Table of Contents — Desktop -->
+                <aside class="hidden lg:block lg:w-72 flex-shrink-0">
+                    <div class="sticky top-32 toc-sidebar max-h-[calc(100vh-160px)] overflow-y-auto pr-4">
+                        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-soft-taupe mb-6" data-i18n="terms_toc">Table of Contents</h3>
+                        <nav class="space-y-1">
+                            <a href="#introduction" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s1_title">1. Introduction</a>
+                            <a href="#services" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s2_title">2. Our Services</a>
+                            <a href="#engagements" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s3_title">3. Project Engagements</a>
+                            <a href="#intellectual-property" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s4_title">4. Intellectual Property</a>
+                            <a href="#fees-payment" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s5_title">5. Fees & Payment</a>
+                            <a href="#client-responsibilities" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s6_title">6. Client Responsibilities</a>
+                            <a href="#confidentiality" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s7_title">7. Confidentiality</a>
+                            <a href="#liability" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s8_title">8. Limitation of Liability</a>
+                            <a href="#termination" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s9_title">9. Termination</a>
+                            <a href="#website-use" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s10_title">10. Website Use</a>
+                            <a href="#governing-law" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s11_title">11. Governing Law</a>
+                            <a href="#contact-info" class="toc-link block px-4 py-2.5 text-sm text-charcoal/60 rounded-r-lg" data-i18n="terms_s12_title">12. Contact Information</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="flex-1 max-w-3xl">
+                    
+                    <!-- Intro Note -->
+                    <div class="bg-warm-beige/10 border border-warm-beige/20 rounded-2xl p-6 lg:p-8 mb-12 terms-section">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-charcoal font-medium mb-1" data-i18n="terms_intro_note_title">Please read these terms carefully</p>
+                                <p class="text-charcoal/60 text-sm leading-relaxed" data-i18n="terms_intro_note_desc">These Terms of Service govern your use of the Kalau Architecture website and our professional architectural services. By engaging our services or using this website, you agree to be bound by these terms.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 1: Introduction -->
+                    <div id="introduction" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">1</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s1_title">Introduction</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s1_p1">Welcome to Kalau Architecture. These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and Kalau, SIA ("Kalau Architecture," "we," "us," or "our"), a company registered in Latvia under registration number 40203479498.</p>
+                            <p data-i18n="terms_s1_p2">By accessing our website, engaging our professional services, or entering into any form of agreement with us, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety.</p>
+                            <p data-i18n="terms_s1_p3">We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon posting on this page. Your continued use of our services after such modifications constitutes your acceptance of the updated Terms.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Our Services -->
+                    <div id="services" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">2</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s2_title">Our Services</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s2_p1">Kalau Architecture provides professional architectural and design services, including but not limited to:</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span data-i18n="terms_s2_li1">Residential architectural design and planning</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span data-i18n="terms_s2_li2">Commercial and public building design</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span data-i18n="terms_s2_li3">Interior design and space planning</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span data-i18n="terms_s2_li4">Construction documentation and project management</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span data-i18n="terms_s2_li5">Consulting and feasibility studies</span>
+                                </li>
+                            </ul>
+                            <p data-i18n="terms_s2_p2">The specific scope of services for each project will be defined in individual project agreements between Kalau Architecture and the Client.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Project Engagements -->
+                    <div id="engagements" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">3</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s3_title">Project Engagements</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s3_p1">All project engagements between Kalau Architecture and the Client shall be governed by a separate written agreement or contract that outlines the specific scope, deliverables, timeline, and compensation terms.</p>
+                            <p data-i18n="terms_s3_p2">Project timelines are estimates provided in good faith. While we strive to meet all deadlines, actual completion dates may vary depending on project complexity, regulatory approvals, client feedback cycles, and other factors beyond our reasonable control.</p>
+                            <p data-i18n="terms_s3_p3">Any changes to the agreed project scope ("Change Orders") must be documented in writing and may result in adjustments to the project timeline and fees. We will communicate such adjustments clearly before proceeding with any scope changes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Intellectual Property -->
+                    <div id="intellectual-property" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">4</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s4_title">Intellectual Property</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s4_p1">All architectural designs, drawings, specifications, models, renderings, and other creative works produced by Kalau Architecture remain our intellectual property until full payment has been received for the applicable project phase.</p>
+                            <p data-i18n="terms_s4_p2">Upon full payment, the Client receives a license to use the deliverables for the specific project as outlined in the project agreement. Kalau Architecture retains the right to use project images, descriptions, and documentation for portfolio, marketing, and promotional purposes unless otherwise agreed in writing.</p>
+                            <p data-i18n="terms_s4_p3">The Client may not reproduce, modify, distribute, or use our designs for any purpose other than the agreed project without prior written consent from Kalau Architecture.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Fees & Payment -->
+                    <div id="fees-payment" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">5</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s5_title">Fees & Payment</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s5_p1">Service fees will be outlined in the project agreement and may be structured as fixed fees, hourly rates, or percentage-based fees depending on the nature and scope of the project.</p>
+                            <p data-i18n="terms_s5_p2">Payment terms and schedules will be specified in each project agreement. Unless otherwise stated, invoices are due within 14 days of issuance. Late payments may incur interest charges in accordance with applicable Latvian law.</p>
+                            <p data-i18n="terms_s5_p3">All fees are quoted in Euros (EUR) and are exclusive of applicable taxes (VAT) unless explicitly stated otherwise. The Client is responsible for any applicable taxes related to the services provided.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 6: Client Responsibilities -->
+                    <div id="client-responsibilities" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">6</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s6_title">Client Responsibilities</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s6_p1">The Client agrees to provide timely and accurate information, documents, and materials necessary for the successful execution of the project. Delays in providing required information may affect project timelines.</p>
+                            <p data-i18n="terms_s6_p2">The Client is responsible for obtaining all necessary permits, approvals, and regulatory clearances required for the project, unless otherwise agreed. Kalau Architecture may assist in this process but does not guarantee approval outcomes.</p>
+                            <p data-i18n="terms_s6_p3">The Client shall designate a single point of contact for project communications and decision-making to ensure efficient collaboration and timely progress.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 7: Confidentiality -->
+                    <div id="confidentiality" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">7</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s7_title">Confidentiality</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s7_p1">Both parties agree to maintain the confidentiality of any proprietary or sensitive information exchanged during the course of the engagement. This obligation survives the termination of any project agreement.</p>
+                            <p data-i18n="terms_s7_p2">Confidential information does not include information that is publicly available, independently developed, or rightfully received from third parties without confidentiality obligations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 8: Limitation of Liability -->
+                    <div id="liability" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">8</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s8_title">Limitation of Liability</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s8_p1">Kalau Architecture shall exercise reasonable professional skill and care in the performance of services. However, our total liability for any claim arising from or related to our services shall not exceed the total fees paid by the Client for the specific project in question.</p>
+                            <p data-i18n="terms_s8_p2">We shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, even if we have been advised of the possibility of such damages.</p>
+                            <p data-i18n="terms_s8_p3">Kalau Architecture is not responsible for construction defects, contractor performance, or deviations from approved designs made without our written consent during the construction phase.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 9: Termination -->
+                    <div id="termination" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">9</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s9_title">Termination</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s9_p1">Either party may terminate a project agreement by providing written notice as specified in the individual project contract. Upon termination, the Client shall pay for all services rendered and expenses incurred up to the effective date of termination.</p>
+                            <p data-i18n="terms_s9_p2">Kalau Architecture reserves the right to suspend or terminate services if the Client fails to meet payment obligations, does not provide necessary information within reasonable timeframes, or breaches any material term of the agreement.</p>
+                            <p data-i18n="terms_s9_p3">Upon termination, all intellectual property provisions, confidentiality obligations, and payment obligations shall survive and remain in effect.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 10: Website Use -->
+                    <div id="website-use" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">10</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s10_title">Website Use</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s10_p1">The content on this website, including text, images, graphics, logos, and project photographs, is the property of Kalau Architecture and is protected by applicable copyright and intellectual property laws.</p>
+                            <p data-i18n="terms_s10_p2">You may browse and access this website for personal, non-commercial purposes. You may not copy, reproduce, distribute, modify, or create derivative works from any content on this website without our prior written permission.</p>
+                            <p data-i18n="terms_s10_p3">We make reasonable efforts to ensure the accuracy of information presented on this website but do not warrant that it is complete, current, or error-free. Project renderings and visualizations are artistic representations and may differ from completed works.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 11: Governing Law -->
+                    <div id="governing-law" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">11</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s11_title">Governing Law</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s11_p1">These Terms shall be governed by and construed in accordance with the laws of the Republic of Latvia, without regard to its conflict of law provisions.</p>
+                            <p data-i18n="terms_s11_p2">Any disputes arising out of or relating to these Terms or our services shall first be attempted to be resolved through good-faith negotiations. If negotiations fail, disputes shall be submitted to the competent courts of the Republic of Latvia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 12: Contact Information -->
+                    <div id="contact-info" class="terms-section mb-14 scroll-mt-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">12</span>
+                            <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="terms_s12_title">Contact Information</h2>
+                        </div>
+                        <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                            <p data-i18n="terms_s12_p1">If you have any questions about these Terms of Service, please contact us:</p>
+                            
+                            <div class="bg-light-gray rounded-2xl p-6 lg:p-8 mt-6 space-y-4">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="terms_contact_company">Company</p>
+                                        <p class="text-charcoal font-medium">Kalau, SIA</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="terms_contact_email">Email</p>
+                                        <a href="mailto:info@kalau.lv" class="text-charcoal font-medium hover:text-warm-beige transition-colors duration-300">info@kalau.lv</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="terms_contact_phone">Phone</p>
+                                        <a href="tel:+37126415554" class="text-charcoal font-medium hover:text-warm-beige transition-colors duration-300">+371 26 415 554</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="terms_contact_reg">Registration</p>
+                                        <p class="text-charcoal font-medium">Reģ.Nr. 40203479498</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-charcoal text-white pt-20 pb-8">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+                <!-- Brand -->
+                <div>
+                    <a href="#home" class="inline-block mb-6">
+                        <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-14 w-auto logo-img brightness-200" />
+                    </a>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-8" data-i18n="footer_desc">
+                        Creating modern, functional, and sustainable architectural solutions that transform visions into reality.
+                    </p>
+                
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_links">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="footer_aboutus">About Us</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_services">Services</span></a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_projects">Projects</span></a></li>
+                        <li><a href="teams.html" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_team">Team</span></a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_contact">Contact</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_services">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service1_title">Residential Design</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service2_title">Commercial Design</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service3_title">Interior Design</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-xs mb-4 md:mb-0" data-i18n="footer_copyright">
+                        &copy; 2024 Kalau Architecture. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="privacy.html" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_privacy">Privacy Policy</a>
+                        <a href="terms.html" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-charcoal text-white rounded-full flex items-center justify-center shadow-xl opacity-0 invisible translate-y-4 transition-all duration-500 hover:bg-warm-beige hover:text-charcoal z-40 group">
+        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ===== SCROLL PROGRESS =====
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // ===== HEADER SCROLL =====
+        const header = document.getElementById('header');
+        // Already has header-scrolled class since this is a subpage
+
+        // ===== MOBILE MENU =====
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            const hamburgerIcon = mobileMenuBtn.querySelector('.hamburger-icon');
+            const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                } else {
+                    mobileMenu.classList.add('open');
+                    mobileMenuBtn.classList.add('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                    if (closeIcon) closeIcon.classList.remove('hidden');
+                }
+            });
+            // Close menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                });
+            });
+        }
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop?.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTop?.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                backToTop?.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                backToTop?.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+        backToTop?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== TERMS SECTIONS REVEAL =====
+        const termsSections = document.querySelectorAll('.terms-section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        termsSections.forEach(s => sectionObserver.observe(s));
+
+        // ===== TOC ACTIVE TRACKING =====
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sectionTargets = document.querySelectorAll('[id]');
+        const tocSectionIds = Array.from(tocLinks).map(l => l.getAttribute('href')?.replace('#', ''));
+
+        function updateActiveToc() {
+            let currentId = '';
+            tocSectionIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= 180) {
+                        currentId = id;
+                    }
+                }
+            });
+            tocLinks.forEach(link => {
+                const href = link.getAttribute('href')?.replace('#', '');
+                if (href === currentId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', updateActiveToc);
+        updateActiveToc();
+
+        // ===== LANGUAGE SWITCHER =====
+        const translations = {
+            en: {
+                nav_about: 'About',
+                nav_services: 'Services',
+                nav_projects: 'Projects',
+                nav_team: 'Team',
+                nav_contact: 'Contact',
+                nav_home: 'Home',
+                terms_breadcrumb: 'Terms of Service',
+                terms_hero_title: 'Terms of Service',
+                terms_last_updated: 'Last updated: January 2025',
+                terms_toc: 'Table of Contents',
+                terms_intro_note_title: 'Please read these terms carefully',
+                terms_intro_note_desc: 'These Terms of Service govern your use of the Kalau Architecture website and our professional architectural services. By engaging our services or using this website, you agree to be bound by these terms.',
+                terms_s1_title: '1. Introduction',
+                terms_s1_p1: 'Welcome to Kalau Architecture. These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and Kalau, SIA ("Kalau Architecture," "we," "us," or "our"), a company registered in Latvia under registration number 40203479498.',
+                terms_s1_p2: 'By accessing our website, engaging our professional services, or entering into any form of agreement with us, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety.',
+                terms_s1_p3: 'We reserve the right to modify these Terms at any time. Any changes will be effective immediately upon posting on this page. Your continued use of our services after such modifications constitutes your acceptance of the updated Terms.',
+                terms_s2_title: '2. Our Services',
+                terms_s2_p1: 'Kalau Architecture provides professional architectural and design services, including but not limited to:',
+                terms_s2_li1: 'Residential architectural design and planning',
+                terms_s2_li2: 'Commercial and public building design',
+                terms_s2_li3: 'Interior design and space planning',
+                terms_s2_li4: 'Construction documentation and project management',
+                terms_s2_li5: 'Consulting and feasibility studies',
+                terms_s2_p2: 'The specific scope of services for each project will be defined in individual project agreements between Kalau Architecture and the Client.',
+                terms_s3_title: '3. Project Engagements',
+                terms_s3_p1: 'All project engagements between Kalau Architecture and the Client shall be governed by a separate written agreement or contract that outlines the specific scope, deliverables, timeline, and compensation terms.',
+                terms_s3_p2: 'Project timelines are estimates provided in good faith. While we strive to meet all deadlines, actual completion dates may vary depending on project complexity, regulatory approvals, client feedback cycles, and other factors beyond our reasonable control.',
+                terms_s3_p3: 'Any changes to the agreed project scope ("Change Orders") must be documented in writing and may result in adjustments to the project timeline and fees. We will communicate such adjustments clearly before proceeding with any scope changes.',
+                terms_s4_title: '4. Intellectual Property',
+                terms_s4_p1: 'All architectural designs, drawings, specifications, models, renderings, and other creative works produced by Kalau Architecture remain our intellectual property until full payment has been received for the applicable project phase.',
+                terms_s4_p2: 'Upon full payment, the Client receives a license to use the deliverables for the specific project as outlined in the project agreement. Kalau Architecture retains the right to use project images, descriptions, and documentation for portfolio, marketing, and promotional purposes unless otherwise agreed in writing.',
+                terms_s4_p3: 'The Client may not reproduce, modify, distribute, or use our designs for any purpose other than the agreed project without prior written consent from Kalau Architecture.',
+                terms_s5_title: '5. Fees & Payment',
+                terms_s5_p1: 'Service fees will be outlined in the project agreement and may be structured as fixed fees, hourly rates, or percentage-based fees depending on the nature and scope of the project.',
+                terms_s5_p2: 'Payment terms and schedules will be specified in each project agreement. Unless otherwise stated, invoices are due within 14 days of issuance. Late payments may incur interest charges in accordance with applicable Latvian law.',
+                terms_s5_p3: 'All fees are quoted in Euros (EUR) and are exclusive of applicable taxes (VAT) unless explicitly stated otherwise. The Client is responsible for any applicable taxes related to the services provided.',
+                terms_s6_title: '6. Client Responsibilities',
+                terms_s6_p1: 'The Client agrees to provide timely and accurate information, documents, and materials necessary for the successful execution of the project. Delays in providing required information may affect project timelines.',
+                terms_s6_p2: 'The Client is responsible for obtaining all necessary permits, approvals, and regulatory clearances required for the project, unless otherwise agreed. Kalau Architecture may assist in this process but does not guarantee approval outcomes.',
+                terms_s6_p3: 'The Client shall designate a single point of contact for project communications and decision-making to ensure efficient collaboration and timely progress.',
+                terms_s7_title: '7. Confidentiality',
+                terms_s7_p1: 'Both parties agree to maintain the confidentiality of any proprietary or sensitive information exchanged during the course of the engagement. This obligation survives the termination of any project agreement.',
+                terms_s7_p2: 'Confidential information does not include information that is publicly available, independently developed, or rightfully received from third parties without confidentiality obligations.',
+                terms_s8_title: '8. Limitation of Liability',
+                terms_s8_p1: 'Kalau Architecture shall exercise reasonable professional skill and care in the performance of services. However, our total liability for any claim arising from or related to our services shall not exceed the total fees paid by the Client for the specific project in question.',
+                terms_s8_p2: 'We shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, even if we have been advised of the possibility of such damages.',
+                terms_s8_p3: 'Kalau Architecture is not responsible for construction defects, contractor performance, or deviations from approved designs made without our written consent during the construction phase.',
+                terms_s9_title: '9. Termination',
+                terms_s9_p1: 'Either party may terminate a project agreement by providing written notice as specified in the individual project contract. Upon termination, the Client shall pay for all services rendered and expenses incurred up to the effective date of termination.',
+                terms_s9_p2: 'Kalau Architecture reserves the right to suspend or terminate services if the Client fails to meet payment obligations, does not provide necessary information within reasonable timeframes, or breaches any material term of the agreement.',
+                terms_s9_p3: 'Upon termination, all intellectual property provisions, confidentiality obligations, and payment obligations shall survive and remain in effect.',
+                terms_s10_title: '10. Website Use',
+                terms_s10_p1: 'The content on this website, including text, images, graphics, logos, and project photographs, is the property of Kalau Architecture and is protected by applicable copyright and intellectual property laws.',
+                terms_s10_p2: 'You may browse and access this website for personal, non-commercial purposes. You may not copy, reproduce, distribute, modify, or create derivative works from any content on this website without our prior written permission.',
+                terms_s10_p3: 'We make reasonable efforts to ensure the accuracy of information presented on this website but do not warrant that it is complete, current, or error-free. Project renderings and visualizations are artistic representations and may differ from completed works.',
+                terms_s11_title: '11. Governing Law',
+                terms_s11_p1: 'These Terms shall be governed by and construed in accordance with the laws of the Republic of Latvia, without regard to its conflict of law provisions.',
+                terms_s11_p2: 'Any disputes arising out of or relating to these Terms or our services shall first be attempted to be resolved through good-faith negotiations. If negotiations fail, disputes shall be submitted to the competent courts of the Republic of Latvia.',
+                terms_s12_title: '12. Contact Information',
+                terms_s12_p1: 'If you have any questions about these Terms of Service, please contact us:',
+                terms_contact_company: 'Company',
+                terms_contact_email: 'Email',
+                terms_contact_phone: 'Phone',
+                terms_contact_reg: 'Registration',
+                footer_desc: 'Creating modern, functional, and sustainable architectural solutions that transform visions into reality.',
+                footer_links: 'Quick Links',
+                footer_aboutus: 'About Us',
+                footer_services: 'Services',
+                footer_newsletter: 'Stay Updated',
+                footer_newsletter_desc: 'Subscribe to our newsletter for updates and insights.',
+                footer_email_placeholder: 'Your email',
+                footer_copyright: '© 2024 Kalau Architecture. All rights reserved.',
+                footer_privacy: 'Privacy Policy',
+                footer_terms: 'Terms of Service',
+                service1_title: 'Residential Design',
+                service2_title: 'Commercial Design',
+                service3_title: 'Interior Design',
+            },
+            lv: {
+                nav_about: 'Par mums',
+                nav_services: 'Pakalpojumi',
+                nav_projects: 'Projekti',
+                nav_team: 'Komanda',
+                nav_contact: 'Kontakti',
+                nav_home: 'Sākums',
+                terms_breadcrumb: 'Lietošanas noteikumi',
+                terms_hero_title: 'Lietošanas noteikumi',
+                terms_last_updated: 'Pēdējo reizi atjaunināts: 2025. gada janvāris',
+                terms_toc: 'Satura rādītājs',
+                terms_intro_note_title: 'Lūdzu, uzmanīgi izlasiet šos noteikumus',
+                terms_intro_note_desc: 'Šie Lietošanas noteikumi regulē jūsu Kalau Architecture tīmekļa vietnes un mūsu profesionālo arhitektūras pakalpojumu izmantošanu. Izmantojot mūsu pakalpojumus vai šo vietni, jūs piekrītat šiem noteikumiem.',
+                terms_s1_title: '1. Ievads',
+                terms_s1_p1: 'Laipni lūdzam Kalau Architecture. Šie Lietošanas noteikumi ("Noteikumi") veido juridiski saistošu vienošanos starp jums ("Klients," "jūs" vai "jūsu") un Kalau, SIA ("Kalau Architecture," "mēs," "mūs" vai "mūsu"), Latvijā reģistrētu uzņēmumu ar reģistrācijas numuru 40203479498.',
+                terms_s1_p2: 'Piekļūstot mūsu tīmekļa vietnei, izmantojot mūsu profesionālos pakalpojumus vai noslēdzot jebkāda veida vienošanos ar mums, jūs apliecināt, ka esat izlasījis, sapratis un piekrītat šiem Noteikumiem pilnā apmērā.',
+                terms_s1_p3: 'Mēs paturam tiesības jebkurā laikā mainīt šos Noteikumus. Jebkuras izmaiņas stājas spēkā nekavējoties pēc to publicēšanas šajā lapā. Turpinot izmantot mūsu pakalpojumus pēc šādām izmaiņām, jūs piekrītat atjauninātajiem Noteikumiem.',
+                terms_s2_title: '2. Mūsu pakalpojumi',
+                terms_s2_p1: 'Kalau Architecture sniedz profesionālus arhitektūras un dizaina pakalpojumus, tostarp, bet ne tikai:',
+                terms_s2_li1: 'Dzīvojamo ēku arhitektūras projektēšana un plānošana',
+                terms_s2_li2: 'Komerciālo un sabiedrisko ēku projektēšana',
+                terms_s2_li3: 'Interjera dizains un telpu plānošana',
+                terms_s2_li4: 'Būvniecības dokumentācija un projektu vadība',
+                terms_s2_li5: 'Konsultācijas un iespējamības pētījumi',
+                terms_s2_p2: 'Katra projekta pakalpojumu apjoms tiks noteikts atsevišķās projekta vienošanās starp Kalau Architecture un Klientu.',
+                terms_s3_title: '3. Projektu sadarbība',
+                terms_s3_p1: 'Visa projektu sadarbība starp Kalau Architecture un Klientu tiks regulēta ar atsevišķu rakstisku vienošanos vai līgumu, kurā noteikts konkrētais apjoms, rezultāti, termiņi un atlīdzības noteikumi.',
+                terms_s3_p2: 'Projektu termiņi ir labticīgi sniegtie aplēses. Lai gan mēs cenšamies ievērot visus termiņus, faktiskie pabeigšanas datumi var atšķirties atkarībā no projekta sarežģītības, regulatīvajiem apstiprinājumiem, klientu atsauksmju cikliem un citiem faktoriem ārpus mūsu saprātīgas kontroles.',
+                terms_s3_p3: 'Jebkuras izmaiņas saskaņotajā projekta apjomā ("Izmaiņu rīkojumi") ir jādokumentē rakstveidā, un tās var izraisīt projekta termiņu un maksu korekcijas. Mēs skaidri paziņosim par šādām korekcijām pirms jebkādu apjoma izmaiņu veikšanas.',
+                terms_s4_title: '4. Intelektuālais īpašums',
+                terms_s4_p1: 'Visi arhitektūras projekti, rasējumi, specifikācijas, modeļi, vizualizācijas un citi radošie darbi, ko veicis Kalau Architecture, paliek mūsu intelektuālais īpašums, līdz ir saņemta pilna samaksa par attiecīgo projekta posmu.',
+                terms_s4_p2: 'Pēc pilnas samaksas Klients saņem licenci izmantot rezultātus konkrētajam projektam, kā noteikts projekta vienošanās. Kalau Architecture patur tiesības izmantot projektu attēlus, aprakstus un dokumentāciju portfolio, mārketinga un reklāmas nolūkos, ja vien nav citādi rakstiski vienots.',
+                terms_s4_p3: 'Klients nedrīkst reproducēt, modificēt, izplatīt vai izmantot mūsu projektus jebkādam citam mērķim, izņemot saskaņoto projektu, bez iepriekšējas rakstiskas Kalau Architecture piekrišanas.',
+                terms_s5_title: '5. Maksas un norēķini',
+                terms_s5_p1: 'Pakalpojumu maksas tiks noteiktas projekta vienošanās un var būt strukturētas kā fiksētas maksas, stundu likmes vai procentuālas maksas atkarībā no projekta rakstura un apjoma.',
+                terms_s5_p2: 'Maksājumu noteikumi un grafiki tiks noteikti katrā projekta vienošanās. Ja nav norādīts citādi, rēķini jāapmaksā 14 dienu laikā pēc izrakstīšanas. Par novēlotiem maksājumiem var tikt piemēroti procentu maksājumi saskaņā ar piemērojamiem Latvijas tiesību aktiem.',
+                terms_s5_p3: 'Visas maksas ir norādītas eiro (EUR) un neietver piemērojamos nodokļus (PVN), ja vien nav skaidri norādīts citādi. Klients ir atbildīgs par jebkuriem piemērojamiem nodokļiem saistībā ar sniegtajiem pakalpojumiem.',
+                terms_s6_title: '6. Klienta pienākumi',
+                terms_s6_p1: 'Klients piekrīt savlaicīgi un precīzi sniegt informāciju, dokumentus un materiālus, kas nepieciešami veiksmīgai projekta izpildei. Kavēšanās ar nepieciešamās informācijas sniegšanu var ietekmēt projekta termiņus.',
+                terms_s6_p2: 'Klients ir atbildīgs par visu nepieciešamo atļauju, apstiprinājumu un regulatīvo saskaņojumu iegūšanu projektam, ja vien nav citādi vienots. Kalau Architecture var palīdzēt šajā procesā, bet negarantē apstiprināšanas rezultātus.',
+                terms_s6_p3: 'Klients norīko vienu kontaktpersonu projekta komunikācijai un lēmumu pieņemšanai, lai nodrošinātu efektīvu sadarbību un savlaicīgu progresu.',
+                terms_s7_title: '7. Konfidencialitāte',
+                terms_s7_p1: 'Abas puses piekrīt uzturēt jebkuras patentētas vai sensitīvas informācijas konfidencialitāti, kas apmainīta sadarbības laikā. Šis pienākums saglabājas arī pēc jebkuras projekta vienošanās izbeigšanas.',
+                terms_s7_p2: 'Konfidenciālā informācija neietver informāciju, kas ir publiski pieejama, neatkarīgi izstrādāta vai likumīgi saņemta no trešajām pusēm bez konfidencialitātes saistībām.',
+                terms_s8_title: '8. Atbildības ierobežojumi',
+                terms_s8_p1: 'Kalau Architecture pildīs pakalpojumus ar saprātīgu profesionālu prasmi un rūpību. Tomēr mūsu kopējā atbildība par jebkuru prasījumu, kas izriet no mūsu pakalpojumiem vai ir ar tiem saistīts, nepārsniedz kopējās maksas, ko Klients samaksājis par konkrēto projektu.',
+                terms_s8_p2: 'Mēs neesam atbildīgi par jebkādiem netiešiem, nejaušiem, speciāliem, izrietošiem vai soda rakstura zaudējumiem, tostarp, bet ne tikai, peļņas, datu vai biznesa iespēju zaudējumiem, pat ja mēs esam brīdināti par šādu zaudējumu iespējamību.',
+                terms_s8_p3: 'Kalau Architecture nav atbildīga par būvniecības defektiem, darbuzņēmēju sniegumu vai atkāpēm no apstiprinātajiem projektiem, kas veiktas bez mūsu rakstiskas piekrišanas būvniecības fāzē.',
+                terms_s9_title: '9. Līguma izbeigšana',
+                terms_s9_p1: 'Jebkura puse var izbeigt projekta vienošanos, iesniedzot rakstisku paziņojumu, kā norādīts individuālajā projekta līgumā. Pēc izbeigšanas Klients maksā par visiem sniegtajiem pakalpojumiem un radušajiem izdevumiem līdz izbeigšanas spēkā stāšanās datumam.',
+                terms_s9_p2: 'Kalau Architecture patur tiesības apturēt vai pārtraukt pakalpojumus, ja Klients nepilda maksājumu saistības, nesniedz nepieciešamo informāciju saprātīgos termiņos vai pārkāpj jebkuru būtisku vienošanās noteikumu.',
+                terms_s9_p3: 'Pēc izbeigšanas visi intelektuālā īpašuma noteikumi, konfidencialitātes saistības un maksājumu saistības paliek spēkā.',
+                terms_s10_title: '10. Tīmekļa vietnes lietošana',
+                terms_s10_p1: 'Šīs tīmekļa vietnes saturs, tostarp teksts, attēli, grafika, logotipi un projektu fotogrāfijas, ir Kalau Architecture īpašums un to aizsargā piemērojamie autortiesību un intelektuālā īpašuma likumi.',
+                terms_s10_p2: 'Jūs drīkstat pārlūkot un piekļūt šai tīmekļa vietnei personiskiem, nekomerciāliem mērķiem. Jūs nedrīkstat kopēt, reproducēt, izplatīt, modificēt vai veidot atvasinātos darbus no jebkāda šīs tīmekļa vietnes satura bez mūsu iepriekšējas rakstiskas atļaujas.',
+                terms_s10_p3: 'Mēs pieliksim saprātīgas pūles, lai nodrošinātu šajā tīmekļa vietnē sniegtās informācijas precizitāti, bet negarantējam, ka tā ir pilnīga, aktuāla vai bez kļūdām. Projektu vizualizācijas ir mākslinieciskas interpretācijas un var atšķirties no pabeigtajiem darbiem.',
+                terms_s11_title: '11. Piemērojamie tiesību akti',
+                terms_s11_p1: 'Šos Noteikumus regulē un interpretē saskaņā ar Latvijas Republikas likumiem, neņemot vērā tās tiesību normu kolīziju noteikumus.',
+                terms_s11_p2: 'Jebkuri strīdi, kas izriet no šiem Noteikumiem vai mūsu pakalpojumiem, vispirms tiks risināti labticīgu sarunu ceļā. Ja sarunas neizdodas, strīdi tiks iesniegti Latvijas Republikas kompetentajās tiesās.',
+                terms_s12_title: '12. Kontaktinformācija',
+                terms_s12_p1: 'Ja jums ir jautājumi par šiem Lietošanas noteikumiem, lūdzu, sazinieties ar mums:',
+                terms_contact_company: 'Uzņēmums',
+                terms_contact_email: 'E-pasts',
+                terms_contact_phone: 'Tālrunis',
+                terms_contact_reg: 'Reģistrācija',
+                footer_desc: 'Veidojam modernas, funkcionālas un ilgtspējīgas arhitektūras risinājumus, kas pārvērš vīzijas realitātē.',
+                footer_links: 'Ātrās saites',
+                footer_aboutus: 'Par mums',
+                footer_services: 'Pakalpojumi',
+                footer_newsletter: 'Esi informēts',
+                footer_newsletter_desc: 'Piesakies mūsu jaunumiem un uzzini aktualitātes.',
+                footer_email_placeholder: 'Tavs e-pasts',
+                footer_copyright: '© 2024 Kalau Architecture. Visas tiesības aizsargātas.',
+                footer_privacy: 'Privātuma politika',
+                footer_terms: 'Lietošanas noteikumi',
+                service1_title: 'Dzīvojamā projektēšana',
+                service2_title: 'Komerciālā projektēšana',
+                service3_title: 'Interjera dizains',
+            }
+        };
+
+        let currentLang = localStorage.getItem('kalau-lang') || 'en';
+
+        function applyTranslations(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) el.textContent = t[key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+        }
+
+        // ===== FLAG SVGs =====
+        const flags = {
+            en: '<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#012169"/><path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/><path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/><path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/><path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/></svg>',
+            lv: '<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#9E3039"/><rect y="14" width="36" height="8" fill="#fff"/></svg>'
+        };
+
+        function switchLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('kalau-lang', lang);
+            applyTranslations(lang);
+
+            // Update desktop flag & label
+            const currentFlag = document.getElementById('current-flag');
+            const currentLangText = document.getElementById('current-lang-text');
+            if (currentFlag) currentFlag.innerHTML = flags[lang];
+            if (currentLangText) currentLangText.textContent = lang.toUpperCase();
+
+            // Update mobile flag & label
+            const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+            const mobileLangText = document.querySelector('.mobile-lang-text');
+            if (mobileLangFlag) mobileLangFlag.innerHTML = flags[lang];
+            if (mobileLangText) mobileLangText.textContent = lang.toUpperCase();
+
+            // Update check marks
+            document.querySelectorAll('.lang-check').forEach(c => c.style.opacity = '0');
+            const activeOpt = document.querySelector('.lang-option[data-lang="' + lang + '"]');
+            if (activeOpt) {
+                const check = activeOpt.querySelector('.lang-check');
+                if (check) check.style.opacity = '1';
+            }
+        }
+
+        // ===== DESKTOP LANGUAGE SWITCHER =====
+        const langToggle = document.getElementById('lang-toggle');
+        const langDropdown = document.getElementById('lang-dropdown');
+
+        if (langToggle && langDropdown) {
+            langToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('open');
+                const arrow = langToggle.querySelector('.lang-arrow');
+                if (arrow) {
+                    arrow.style.transform = langDropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+                }
+            });
+
+            // Language option click
+            langDropdown.querySelectorAll('.lang-option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    const lang = opt.getAttribute('data-lang');
+                    if (lang !== currentLang) {
+                        switchLang(lang);
+                    }
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0)';
+                });
+            });
+
+            // Close dropdown on outside click
+            document.addEventListener('click', (e) => {
+                if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0)';
+                }
+            });
+        }
+
+        // ===== MOBILE LANGUAGE SWITCHER (simple toggle) =====
+        const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', () => {
+                const newLang = currentLang === 'en' ? 'lv' : 'en';
+                switchLang(newLang);
+            });
+        }
+
+        // ===== Apply saved language on load =====
+        switchLang(currentLang);
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalau Architecture | Privacy Policy</title>
+    <meta name="description" content="Kalau Architecture - Privacy Policy describing how we collect, use, and protect your personal information.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'charcoal': '#2F2F33',
+                        'warm-beige': '#DCCCB2',
+                        'soft-taupe': '#B8AFA1',
+                        'light-gray': '#F3F3F3',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'dm': ['DM Sans', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .policy-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .policy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-white text-charcoal antialiased">
+
+    <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-warm-beige via-soft-taupe to-warm-beige z-[100] transition-none" style="width: 0%;"></div>
+
+    <!-- ==================== STICKY HEADER ==================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 header-scrolled">
+        <div class="container mx-auto px-4 lg:px-8">
+            <nav class="flex items-center justify-between h-24">
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 logo-link">
+                    <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-16 w-auto logo-img transition-all duration-500" />
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center">
+                    <div class="flex items-center space-x-10 mr-10">
+                        <a href="index.html#about" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_about">About</a>
+                        <a href="index.html#services" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_services">Services</a>
+                        <a href="index.html#projects" class="nav-link text-charcoal/70 hover:text-charcoal transition-all duration-300 text-sm font-medium tracking-widest uppercase" data-i18n="nav_projects">Projects</a>
+                    </div>
+                    <div class="h-5 w-px bg-charcoal/10 mr-8 nav-divider"></div>
+                    <div class="flex items-center space-x-5">
+                        <!-- Language Switcher -->
+                        <div id="lang-switcher" class="lang-switcher relative flex items-center">
+                            <button id="lang-toggle" class="flex items-center gap-2 px-3 py-2 rounded-full border border-charcoal/10 hover:border-charcoal/30 transition-all duration-300 group" aria-label="Switch language">
+                                <span class="lang-flag" id="current-flag">
+                                    <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="36" height="36" rx="18" fill="#012169"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                        <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                        <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                    </svg>
+                                </span>
+                                <span class="text-xs font-semibold tracking-wider lang-label text-charcoal" id="current-lang-text">EN</span>
+                                <svg class="w-3 h-3 transition-transform duration-300 lang-arrow text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div id="lang-dropdown" class="lang-dropdown absolute top-full right-0 mt-3 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden opacity-0 invisible translate-y-2 transition-all duration-300 min-w-[180px] z-50">
+                                <div class="p-2">
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="en">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#012169"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                            <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                            <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">English</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">EN</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                    <button class="lang-option w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-light-gray transition-all duration-200 group" data-lang="lv">
+                                        <svg class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="36" height="36" rx="18" fill="#9E3039"/>
+                                            <rect y="14" width="36" height="8" fill="#fff"/>
+                                        </svg>
+                                        <div class="text-left">
+                                            <div class="text-sm font-semibold text-charcoal">Latviešu</div>
+                                            <div class="text-[10px] text-soft-taupe uppercase tracking-wider">LV</div>
+                                        </div>
+                                        <svg class="w-4 h-4 text-warm-beige ml-auto opacity-0 lang-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CTA Button -->
+                        <a href="index.html#contact" class="group flex items-center px-7 py-3.5 bg-charcoal text-white rounded-full font-medium text-sm hover:bg-warm-beige hover:text-charcoal transition-all duration-500 hover:shadow-lg">
+                            <span data-i18n="nav_contact">Contact</span>
+                            <svg class="ml-2 w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mobile: Language + Menu Button -->
+                <div class="flex lg:hidden items-center gap-3">
+                    <button id="mobile-lang-toggle" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-charcoal/15 transition-all duration-300" aria-label="Switch language">
+                        <span class="mobile-lang-flag">
+                            <svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="36" height="36" rx="18" fill="#012169"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/>
+                                <path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/>
+                                <path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/>
+                                <path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/>
+                            </svg>
+                        </span>
+                        <span class="text-[10px] font-bold tracking-wider mobile-lang-text">EN</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-charcoal p-2 focus:outline-none transition-colors duration-300" aria-label="Toggle menu">
+                        <svg class="w-7 h-7 hamburger-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-7 h-7 close-icon hidden transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden bg-white/98 backdrop-blur-xl border-t border-gray-100">
+            <div class="container mx-auto px-4 py-6 space-y-1">
+                <a href="index.html#about" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_about">About</a>
+                <a href="index.html#services" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_services">Services</a>
+                <a href="index.html#projects" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_projects">Projects</a>
+                <a href="teams.html" class="block px-4 py-3.5 text-charcoal hover:text-warm-beige hover:bg-warm-beige/5 rounded-xl transition-all duration-300 font-medium tracking-wide" data-i18n="nav_team">Team</a>
+                <div class="pt-4 mt-2 border-t border-gray-100">
+                    <a href="index.html#contact" class="flex items-center justify-center px-6 py-3.5 bg-charcoal text-white rounded-full font-medium hover:bg-warm-beige hover:text-charcoal transition-all duration-500">
+                        <span data-i18n="nav_contact">Contact</span>
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="relative h-[45vh] min-h-[360px] flex items-end overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-charcoal"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/60 to-charcoal/90"></div>
+        </div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 pb-16">
+            <div class="max-w-3xl">
+                <nav class="flex items-center space-x-2 text-sm mb-6">
+                    <a href="index.html" class="text-gray-400 hover:text-warm-beige transition-colors duration-300" data-i18n="nav_home">Home</a>
+                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    <span class="text-warm-beige" data-i18n="privacy_breadcrumb">Privacy Policy</span>
+                </nav>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight" data-i18n="privacy_hero_title">Privacy Policy</h1>
+                <p class="text-gray-400 mt-4 text-lg" data-i18n="privacy_last_updated">Last updated: January 2025</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRIVACY CONTENT ==================== -->
+    <section class="py-16 lg:py-24">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                
+                <!-- Intro Note -->
+                <div class="bg-warm-beige/10 border border-warm-beige/20 rounded-2xl p-6 lg:p-8 mb-12 policy-section">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-charcoal font-medium mb-1" data-i18n="privacy_intro_title">Your privacy matters to us</p>
+                            <p class="text-charcoal/60 text-sm leading-relaxed" data-i18n="privacy_intro_desc">This Privacy Policy explains how Kalau, SIA collects, uses, and protects your personal information when you visit our website or use our services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">1</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s1_title">Information We Collect</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s1_p1">We may collect the following types of information:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s1_li1"><strong>Contact details</strong> — name, email address, phone number, and company name when you reach out to us</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s1_li2"><strong>Project information</strong> — details you provide about your architectural project requirements</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s1_li3"><strong>Website usage data</strong> — pages visited, time spent, browser type, and device information collected automatically</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s1_li4"><strong>Newsletter subscription</strong> — email address when you subscribe to our updates</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">2</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s2_title">How We Use Your Information</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s2_p1">We use your personal information to:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s2_li1">Respond to your inquiries and provide requested services</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s2_li2">Manage and deliver architectural projects</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s2_li3">Send newsletters and updates (with your consent)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s2_li4">Improve our website and services</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s2_li5">Comply with legal obligations</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">3</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s3_title">Cookies</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s3_p1">Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences, such as your selected language.</p>
+                        <p data-i18n="privacy_s3_p2">We use only essential cookies required for the website to function properly. We do not use advertising or tracking cookies. You can disable cookies in your browser settings, though some website features may not work as intended.</p>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">4</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s4_title">Data Sharing</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s4_p1">We do not sell or rent your personal information to third parties. We may share your data only in the following circumstances:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s4_li1">With trusted service providers who assist in our operations (e.g., hosting, email services)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s4_li2">When required by law or to respond to legal processes</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s4_li3">With your explicit consent</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">5</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s5_title">Data Security</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s5_p1">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+                    </div>
+                </div>
+
+                <!-- Section 6 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">6</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s6_title">Your Rights</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s6_p1">Under the EU General Data Protection Regulation (GDPR), you have the right to:</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s6_li1">Access the personal data we hold about you</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s6_li2">Request correction of inaccurate data</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s6_li3">Request deletion of your data</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s6_li4">Withdraw consent at any time</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-warm-beige flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <span data-i18n="privacy_s6_li5">Lodge a complaint with the Data State Inspectorate of Latvia</span>
+                            </li>
+                        </ul>
+                        <p data-i18n="privacy_s6_p2">To exercise any of these rights, please contact us at info@kalau.lv.</p>
+                    </div>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">7</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s7_title">Data Retention</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s7_p1">We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, or as required by applicable laws and regulations. Project-related data is retained for the duration required by Latvian construction and business regulations.</p>
+                    </div>
+                </div>
+
+                <!-- Section 8 -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">8</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s8_title">Changes to This Policy</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s8_p1">We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this page periodically.</p>
+                    </div>
+                </div>
+
+                <!-- Section 9: Contact -->
+                <div class="policy-section mb-12">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="w-8 h-8 rounded-lg bg-charcoal text-white text-xs font-bold flex items-center justify-center">9</span>
+                        <h2 class="text-2xl lg:text-3xl font-semibold" data-i18n="privacy_s9_title">Contact Us</h2>
+                    </div>
+                    <div class="pl-11 space-y-4 text-charcoal/70 leading-relaxed">
+                        <p data-i18n="privacy_s9_p1">If you have any questions about this Privacy Policy or how we handle your data, please contact us:</p>
+                        
+                        <div class="bg-light-gray rounded-2xl p-6 lg:p-8 mt-6 space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="privacy_contact_company">Data Controller</p>
+                                    <p class="text-charcoal font-medium">Kalau, SIA (Reģ.Nr. 40203479498)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="privacy_contact_email">Email</p>
+                                    <a href="mailto:info@kalau.lv" class="text-charcoal font-medium hover:text-warm-beige transition-colors duration-300">info@kalau.lv</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-warm-beige/20 flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-soft-taupe uppercase tracking-wider font-semibold" data-i18n="privacy_contact_phone">Phone</p>
+                                    <a href="tel:+37126415554" class="text-charcoal font-medium hover:text-warm-beige transition-colors duration-300">+371 26 415 554</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-charcoal text-white pt-20 pb-8">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
+                <!-- Brand -->
+                <div>
+                    <a href="#home" class="inline-block mb-6">
+                        <img src="assets/images/logo.png" alt="Kalau Architecture" class="h-14 w-auto logo-img brightness-200" />
+                    </a>
+                    <p class="text-gray-400 leading-relaxed text-sm mb-8" data-i18n="footer_desc">
+                        Creating modern, functional, and sustainable architectural solutions that transform visions into reality.
+                    </p>
+                
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_links">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="footer_aboutus">About Us</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_services">Services</span></a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_projects">Projects</span></a></li>
+                        <li><a href="teams.html" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_team">Team</span></a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_contact">Contact</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-sm font-semibold mb-6 uppercase tracking-wider" data-i18n="footer_services">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service1_title">Residential Design</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service2_title">Commercial Design</span></a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service3_title">Interior Design</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-xs mb-4 md:mb-0" data-i18n="footer_copyright">
+                        &copy; 2024 Kalau Architecture. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="privacy.html" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_privacy">Privacy Policy</a>
+                        <a href="terms.html" class="text-gray-500 hover:text-warm-beige transition-colors text-xs" data-i18n="footer_terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-charcoal text-white rounded-full flex items-center justify-center shadow-xl opacity-0 invisible translate-y-4 transition-all duration-500 hover:bg-warm-beige hover:text-charcoal z-40 group">
+        <svg class="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ===== SCROLL PROGRESS =====
+        const scrollProgress = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            if (scrollProgress) scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // ===== MOBILE MENU =====
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            const hamburgerIcon = mobileMenuBtn.querySelector('.hamburger-icon');
+            const closeIcon = mobileMenuBtn.querySelector('.close-icon');
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                } else {
+                    mobileMenu.classList.add('open');
+                    mobileMenuBtn.classList.add('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+                    if (closeIcon) closeIcon.classList.remove('hidden');
+                }
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuBtn.classList.remove('active');
+                    if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                });
+            });
+        }
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop?.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTop?.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                backToTop?.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                backToTop?.classList.remove('opacity-100', 'visible', 'translate-y-0');
+            }
+        });
+        backToTop?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== SECTION REVEAL =====
+        const policySections = document.querySelectorAll('.policy-section');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        policySections.forEach(s => sectionObserver.observe(s));
+
+        // ===== LANGUAGE SWITCHER =====
+        const translations = {
+            en: {
+                nav_about: 'About', nav_services: 'Services', nav_projects: 'Projects', nav_team: 'Team', nav_contact: 'Contact', nav_home: 'Home',
+                privacy_breadcrumb: 'Privacy Policy',
+                privacy_hero_title: 'Privacy Policy',
+                privacy_last_updated: 'Last updated: January 2025',
+                privacy_intro_title: 'Your privacy matters to us',
+                privacy_intro_desc: 'This Privacy Policy explains how Kalau, SIA collects, uses, and protects your personal information when you visit our website or use our services.',
+                privacy_s1_title: 'Information We Collect',
+                privacy_s1_p1: 'We may collect the following types of information:',
+                privacy_s1_li1: '<strong>Contact details</strong> — name, email address, phone number, and company name when you reach out to us',
+                privacy_s1_li2: '<strong>Project information</strong> — details you provide about your architectural project requirements',
+                privacy_s1_li3: '<strong>Website usage data</strong> — pages visited, time spent, browser type, and device information collected automatically',
+                privacy_s1_li4: '<strong>Newsletter subscription</strong> — email address when you subscribe to our updates',
+                privacy_s2_title: 'How We Use Your Information',
+                privacy_s2_p1: 'We use your personal information to:',
+                privacy_s2_li1: 'Respond to your inquiries and provide requested services',
+                privacy_s2_li2: 'Manage and deliver architectural projects',
+                privacy_s2_li3: 'Send newsletters and updates (with your consent)',
+                privacy_s2_li4: 'Improve our website and services',
+                privacy_s2_li5: 'Comply with legal obligations',
+                privacy_s3_title: 'Cookies',
+                privacy_s3_p1: 'Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences, such as your selected language.',
+                privacy_s3_p2: 'We use only essential cookies required for the website to function properly. We do not use advertising or tracking cookies. You can disable cookies in your browser settings, though some website features may not work as intended.',
+                privacy_s4_title: 'Data Sharing',
+                privacy_s4_p1: 'We do not sell or rent your personal information to third parties. We may share your data only in the following circumstances:',
+                privacy_s4_li1: 'With trusted service providers who assist in our operations (e.g., hosting, email services)',
+                privacy_s4_li2: 'When required by law or to respond to legal processes',
+                privacy_s4_li3: 'With your explicit consent',
+                privacy_s5_title: 'Data Security',
+                privacy_s5_p1: 'We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.',
+                privacy_s6_title: 'Your Rights',
+                privacy_s6_p1: 'Under the EU General Data Protection Regulation (GDPR), you have the right to:',
+                privacy_s6_li1: 'Access the personal data we hold about you',
+                privacy_s6_li2: 'Request correction of inaccurate data',
+                privacy_s6_li3: 'Request deletion of your data',
+                privacy_s6_li4: 'Withdraw consent at any time',
+                privacy_s6_li5: 'Lodge a complaint with the Data State Inspectorate of Latvia',
+                privacy_s6_p2: 'To exercise any of these rights, please contact us at info@kalau.lv.',
+                privacy_s7_title: 'Data Retention',
+                privacy_s7_p1: 'We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, or as required by applicable laws and regulations. Project-related data is retained for the duration required by Latvian construction and business regulations.',
+                privacy_s8_title: 'Changes to This Policy',
+                privacy_s8_p1: 'We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this page periodically.',
+                privacy_s9_title: 'Contact Us',
+                privacy_s9_p1: 'If you have any questions about this Privacy Policy or how we handle your data, please contact us:',
+                privacy_contact_company: 'Data Controller',
+                privacy_contact_email: 'Email',
+                privacy_contact_phone: 'Phone',
+                footer_desc: 'Creating modern, functional, and sustainable architectural solutions that transform visions into reality.',
+                footer_links: 'Quick Links', footer_aboutus: 'About Us', footer_services: 'Services',
+                footer_newsletter: 'Stay Updated', footer_newsletter_desc: 'Subscribe to our newsletter for updates and insights.',
+                footer_email_placeholder: 'Your email',
+                footer_copyright: '© 2024 Kalau Architecture. All rights reserved.',
+                footer_privacy: 'Privacy Policy', footer_terms: 'Terms of Service',
+                service1_title: 'Residential Design', service2_title: 'Commercial Design', service3_title: 'Interior Design',
+            },
+            lv: {
+                nav_about: 'Par mums', nav_services: 'Pakalpojumi', nav_projects: 'Projekti', nav_team: 'Komanda', nav_contact: 'Kontakti', nav_home: 'Sākums',
+                privacy_breadcrumb: 'Privātuma politika',
+                privacy_hero_title: 'Privātuma politika',
+                privacy_last_updated: 'Pēdējo reizi atjaunināts: 2025. gada janvāris',
+                privacy_intro_title: 'Jūsu privātums mums ir svarīgs',
+                privacy_intro_desc: 'Šī Privātuma politika izskaidro, kā Kalau, SIA vāc, izmanto un aizsargā jūsu personisko informāciju, kad apmeklējat mūsu tīmekļa vietni vai izmantojat mūsu pakalpojumus.',
+                privacy_s1_title: 'Informācija, ko mēs vācam',
+                privacy_s1_p1: 'Mēs varam vākt šādus informācijas veidus:',
+                privacy_s1_li1: '<strong>Kontaktinformācija</strong> — vārds, e-pasta adrese, tālruņa numurs un uzņēmuma nosaukums, kad sazināties ar mums',
+                privacy_s1_li2: '<strong>Projekta informācija</strong> — informācija, ko sniedzat par savām arhitektūras projekta prasībām',
+                privacy_s1_li3: '<strong>Tīmekļa vietnes lietošanas dati</strong> — apmeklētās lapas, pavadītais laiks, pārlūka veids un ierīces informācija, kas tiek apkopota automātiski',
+                privacy_s1_li4: '<strong>Jaunumu abonēšana</strong> — e-pasta adrese, kad abonējat mūsu jaunumus',
+                privacy_s2_title: 'Kā mēs izmantojam jūsu informāciju',
+                privacy_s2_p1: 'Mēs izmantojam jūsu personisko informāciju, lai:',
+                privacy_s2_li1: 'Atbildētu uz jūsu pieprasījumiem un sniegtu pieprasītos pakalpojumus',
+                privacy_s2_li2: 'Pārvaldītu un īstenotu arhitektūras projektus',
+                privacy_s2_li3: 'Sūtītu jaunumus un atjauninājumus (ar jūsu piekrišanu)',
+                privacy_s2_li4: 'Uzlabotu mūsu tīmekļa vietni un pakalpojumus',
+                privacy_s2_li5: 'Ievērotu juridiskās saistības',
+                privacy_s3_title: 'Sīkdatnes',
+                privacy_s3_p1: 'Mūsu tīmekļa vietne izmanto sīkdatnes, lai uzlabotu jūsu pārlūkošanas pieredzi. Sīkdatnes ir nelieli teksta faili, kas tiek saglabāti jūsu ierīcē un palīdz mums atcerēties jūsu preferences, piemēram, izvēlēto valodu.',
+                privacy_s3_p2: 'Mēs izmantojam tikai būtiskas sīkdatnes, kas nepieciešamas tīmekļa vietnes pareizai darbībai. Mēs neizmantojam reklāmas vai izsekošanas sīkdatnes. Jūs varat atspējot sīkdatnes savā pārlūkā, lai gan dažas tīmekļa vietnes funkcijas var nedarboties kā paredzēts.',
+                privacy_s4_title: 'Datu kopīgošana',
+                privacy_s4_p1: 'Mēs nepārdodam un neiznomājam jūsu personisko informāciju trešajām pusēm. Mēs varam kopīgot jūsu datus tikai šādos gadījumos:',
+                privacy_s4_li1: 'Ar uzticamiem pakalpojumu sniedzējiem, kas palīdz mūsu darbībā (piem., hostings, e-pasta pakalpojumi)',
+                privacy_s4_li2: 'Kad to prasa likums vai lai atbildētu uz juridiskiem procesiem',
+                privacy_s4_li3: 'Ar jūsu nepārprotamu piekrišanu',
+                privacy_s5_title: 'Datu drošība',
+                privacy_s5_p1: 'Mēs ieviešam atbilstošus tehniskus un organizatoriskus pasākumus, lai aizsargātu jūsu personisko informāciju pret nesankcionētu piekļuvi, izmaiņām, izpaušanu vai iznīcināšanu. Tomēr neviena datu pārraides metode internetā nav 100% droša, un mēs nevaram garantēt absolūtu drošību.',
+                privacy_s6_title: 'Jūsu tiesības',
+                privacy_s6_p1: 'Saskaņā ar ES Vispārīgo datu aizsardzības regulu (GDPR) jums ir tiesības:',
+                privacy_s6_li1: 'Piekļūt personiskajiem datiem, ko mēs glabājam par jums',
+                privacy_s6_li2: 'Pieprasīt neprecīzu datu labošanu',
+                privacy_s6_li3: 'Pieprasīt jūsu datu dzēšanu',
+                privacy_s6_li4: 'Atsaukt piekrišanu jebkurā laikā',
+                privacy_s6_li5: 'Iesniegt sūdzību Datu valsts inspekcijā',
+                privacy_s6_p2: 'Lai izmantotu jebkuras no šīm tiesībām, lūdzu, sazinieties ar mums: info@kalau.lv.',
+                privacy_s7_title: 'Datu saglabāšana',
+                privacy_s7_p1: 'Mēs saglabājam jūsu personiskos datus tikai tik ilgi, cik nepieciešams, lai izpildītu mērķus, kādiem tie tika vākti, vai kā to prasa piemērojamie tiesību akti un noteikumi. Ar projektiem saistītie dati tiek saglabāti Latvijas būvniecības un uzņēmējdarbības noteikumos noteiktajā termiņā.',
+                privacy_s8_title: 'Izmaiņas šajā politikā',
+                privacy_s8_p1: 'Mēs varam laiku pa laikam atjaunināt šo Privātuma politiku. Jebkuras izmaiņas tiks publicētas šajā lapā ar atjauninātu pārskatīšanas datumu. Mēs iesakām periodiski pārskatīt šo lapu.',
+                privacy_s9_title: 'Sazinieties ar mums',
+                privacy_s9_p1: 'Ja jums ir jautājumi par šo Privātuma politiku vai to, kā mēs apstrādājam jūsu datus, lūdzu, sazinieties ar mums:',
+                privacy_contact_company: 'Datu pārzinis',
+                privacy_contact_email: 'E-pasts',
+                privacy_contact_phone: 'Tālrunis',
+                footer_desc: 'Veidojam modernas, funkcionālas un ilgtspējīgas arhitektūras risinājumus, kas pārvērš vīzijas realitātē.',
+                footer_links: 'Ātrās saites', footer_aboutus: 'Par mums', footer_services: 'Pakalpojumi',
+                footer_newsletter: 'Esi informēts', footer_newsletter_desc: 'Piesakies mūsu jaunumiem un uzzini aktualitātes.',
+                footer_email_placeholder: 'Tavs e-pasts',
+                footer_copyright: '© 2024 Kalau Architecture. Visas tiesības aizsargātas.',
+                footer_privacy: 'Privātuma politika', footer_terms: 'Lietošanas noteikumi',
+                service1_title: 'Dzīvojamā projektēšana', service2_title: 'Komerciālā projektēšana', service3_title: 'Interjera dizains',
+            }
+        };
+
+        let currentLang = localStorage.getItem('kalau-lang') || 'en';
+
+        function applyTranslations(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    if (t[key].includes('<strong>')) {
+                        el.innerHTML = t[key];
+                    } else {
+                        el.textContent = t[key];
+                    }
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+        }
+
+        const flags = {
+            en: '<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#012169"/><path d="M0 0L36 36M36 0L0 36" stroke="#fff" stroke-width="6"/><path d="M0 0L36 36M36 0L0 36" stroke="#C8102E" stroke-width="2"/><path d="M18 0V36M0 18H36" stroke="#fff" stroke-width="10"/><path d="M18 0V36M0 18H36" stroke="#C8102E" stroke-width="6"/></svg>',
+            lv: '<svg class="w-5 h-5 rounded-full overflow-hidden" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#9E3039"/><rect y="14" width="36" height="8" fill="#fff"/></svg>'
+        };
+
+        function switchLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('kalau-lang', lang);
+            applyTranslations(lang);
+            const currentFlag = document.getElementById('current-flag');
+            const currentLangText = document.getElementById('current-lang-text');
+            if (currentFlag) currentFlag.innerHTML = flags[lang];
+            if (currentLangText) currentLangText.textContent = lang.toUpperCase();
+            const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+            const mobileLangText = document.querySelector('.mobile-lang-text');
+            if (mobileLangFlag) mobileLangFlag.innerHTML = flags[lang];
+            if (mobileLangText) mobileLangText.textContent = lang.toUpperCase();
+            document.querySelectorAll('.lang-check').forEach(c => c.style.opacity = '0');
+            const activeOpt = document.querySelector('.lang-option[data-lang="' + lang + '"]');
+            if (activeOpt) {
+                const check = activeOpt.querySelector('.lang-check');
+                if (check) check.style.opacity = '1';
+            }
+        }
+
+        // Desktop language switcher
+        const langToggle = document.getElementById('lang-toggle');
+        const langDropdown = document.getElementById('lang-dropdown');
+        if (langToggle && langDropdown) {
+            langToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('open');
+                const arrow = langToggle.querySelector('.lang-arrow');
+                if (arrow) arrow.style.transform = langDropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+            });
+            langDropdown.querySelectorAll('.lang-option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    const lang = opt.getAttribute('data-lang');
+                    if (lang !== currentLang) switchLang(lang);
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0)';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!langToggle.contains(e.target) && !langDropdown.contains(e.target)) {
+                    langDropdown.classList.remove('open');
+                    const arrow = langToggle.querySelector('.lang-arrow');
+                    if (arrow) arrow.style.transform = 'rotate(0)';
+                }
+            });
+        }
+
+        // Mobile language switcher
+        const mobileLangToggle = document.getElementById('mobile-lang-toggle');
+        if (mobileLangToggle) {
+            mobileLangToggle.addEventListener('click', () => {
+                switchLang(currentLang === 'en' ? 'lv' : 'en');
+            });
+        }
+
+        switchLang(currentLang);
+    });
+    </script>
+
+</body>
+</html>
