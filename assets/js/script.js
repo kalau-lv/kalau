@@ -603,22 +603,16 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 
-const form=document.querySelector("form");
+const form = document.querySelector("form");
 
-form.addEventListener("submit",async(e)=>{
-
-    e.preventDefault();
-
-    console.log(form.name)
-    await sendMessage({
-
-        name:form.name.value,
-
-        email:form.email.value,
-
-        message:form.message.value
-
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        await sendMessage({
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value
+        });
     });
-
-});
+}
 });
