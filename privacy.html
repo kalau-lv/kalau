@@ -483,44 +483,28 @@
     </section>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-charcoal text-white pt-10 pb-6">
+    <footer class="bg-charcoal text-white py-6">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-8">
-                <!-- Brand -->
-                <div class="md:max-w-sm">
-                    <a href="index.html" class="inline-block mb-4">
-                        <img src="assets/images/logo.png" alt="Kalau Architecture logotips" class="h-10 w-auto logo-img brightness-200" />
+            <!-- Top row: Logo + Horizontal Quick Links -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div class="flex items-center gap-4 flex-shrink-0">
+                    <a href="index.html" class="inline-block flex-shrink-0">
+                        <img src="assets/images/logo.png" alt="Kalau Architecture logotips"
+                            class="h-8 w-auto logo-img brightness-200" />
                     </a>
-                    <p class="text-gray-400 leading-relaxed text-sm" data-i18n="footer_desc">
-                        Creating modern, functional, and sustainable architectural solutions that transform visions into reality.
-                    </p>
+                    <p class="text-gray-400 text-xs max-w-xs leading-relaxed border-l border-white/20 pl-4" data-i18n="footer_tagline">We create modern, functional, and sustainable architectural solutions that turn visions into reality.</p>
                 </div>
-                
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-sm font-semibold mb-4 uppercase tracking-wider" data-i18n="footer_links">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#about" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="footer_aboutus">About Us</span></a></li>
-                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_services">Services</span></a></li>
-                        <li><a href="index.html#projects" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_projects">Projects</span></a></li>
-                        <li><a href="teams.html" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_team">Team</span></a></li>
-                        <li><a href="index.html#contact" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="nav_contact">Contact</span></a></li>
-                    </ul>
-                </div>
-
-                <!-- Services (commented out) -->
-                <!-- <div>
-                    <h4 class="text-sm font-semibold mb-4 uppercase tracking-wider" data-i18n="footer_services">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service1_title">Residential Design</span></a></li>
-                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service2_title">Commercial Design</span></a></li>
-                        <li><a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-all duration-300 text-sm inline-flex items-center group"><span class="w-0 h-px bg-warm-beige mr-0 group-hover:w-4 group-hover:mr-2 transition-all duration-300"></span><span data-i18n="service3_title">Interior Design</span></a></li>
-                    </ul>
-                </div> -->
+                <nav class="flex flex-wrap items-center gap-x-6 gap-y-1">
+                    <a href="index.html#about" class="text-gray-400 hover:text-warm-beige transition-colors duration-300 text-sm" data-i18n="footer_aboutus">About Us</a>
+                    <a href="index.html#services" class="text-gray-400 hover:text-warm-beige transition-colors duration-300 text-sm" data-i18n="nav_services">Services</a>
+                    <a href="index.html#projects" class="text-gray-400 hover:text-warm-beige transition-colors duration-300 text-sm" data-i18n="nav_projects">Projects</a>
+                    <a href="teams.html" class="text-gray-400 hover:text-warm-beige transition-colors duration-300 text-sm" data-i18n="nav_team">Team</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-warm-beige transition-colors duration-300 text-sm" data-i18n="nav_contact">Contact</a>
+                </nav>
             </div>
-            
-            <div class="border-t border-white/10 pt-5">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+            <!-- Bottom row: Copyright + Legal -->
+            <div class="border-t border-white/10 pt-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-2">
                     <p class="text-gray-500 text-xs" data-i18n="footer_copyright">
                         &copy; 2024 Kalau Architecture. All rights reserved.
                     </p>
