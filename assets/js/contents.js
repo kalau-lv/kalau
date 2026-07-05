@@ -631,11 +631,11 @@ const SITE = {
             // Contact
             contact_label: 'Sazināties',
             contact_title: 'Sazinieties ar <span class="text-gradient">mums</span>',
-            contact_subtitle: 'Gatavi sākt savu projektu? Apspriedīsim, kā mēs varam realizēt jūsu arhitektūras vīziju.',
+            contact_subtitle: 'Nepiciešams projekts? Apspriedīsim, kā mēs varam realizēt jūsu vēlmes un iespējas.',
             contact_legal: 'Uzņēmuma informācija',
-            contact_email: 'Rakstiet mums',
-            contact_phone: 'Zvaniet mums',
-            contact_follow: 'Sekojiet mums',
+            contact_email: 'Droši raksti',
+            contact_phone: 'Uzzvani',
+            contact_follow: 'Pieseko',
 
             // Footer
             footer_desc: 'Radām modernas, funkcionālas un ilgtspējīgas arhitektūras risinājumus, kas pārvērš vīzijas realitātē.',
