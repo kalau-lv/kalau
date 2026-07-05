@@ -27,7 +27,7 @@ const SITE = {
         legalName: 'Kalau, SIA',
         regNumber: '40203479498',
         buildingReg: '20711',
-        email: 'hello@kalauarchitecture.com',
+        email: 'kalau@kalau.lv',
         phone: '+1 (555) 123-4567',
         foundedYear: 2013,
         logoPath: 'assets/images/logo.png',
