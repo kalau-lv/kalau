@@ -28,8 +28,8 @@ const SITE = {
         regNumber: '40203479498',
         buildingReg: '20711',
         email: 'kalau@kalau.lv',
-        phone: '+1 (555) 123-4567',
-        foundedYear: 2013,
+        phone: '+371 28364517',
+        foundedYear: 2025,
         logoPath: 'assets/images/logo.png',
         socialLinks: {
             instagram: '#',
@@ -41,9 +41,9 @@ const SITE = {
     //  STATS  —  numbers shown in the About section
     // ============================================================
     stats: {
-        yearsExperience: 10,
-        projectsDone: 250,
-        awardsWon: 20,
+        yearsExperience: 8,
+        projectsDone: 50,
+        awardsWon: 100%,
         teamSize: 15,
     },
 
@@ -561,8 +561,8 @@ const SITE = {
             about_p1: 'Kalau Architecture mēs ticam, ka lielisks dizains spēj mainīt dzīves. Mūsu aizrautīgo arhitektu un dizaineru komanda sadarbojas, lai radītu telpas, kas ir ne tikai estētiski pārsteidzošas, bet arī funkcionālas un ilgtspējīgas.',
             about_p2: 'No koncepcijas līdz pabeigšanai mēs katrā projektā ienesam inovāciju, precizitāti un radošumu. Mūsu apņemšanās sasniegt izcilību ir nodrošinājusi atzinību visā nozarē.',
             about_stat1: 'Gadu pieredze',
-            about_stat2: 'Projekti pabeigti',
-            about_stat3: 'Balvas iegūtas',
+            about_stat2: 'Izstrādāti projekti',
+            about_stat3: 'Individuāli risinājumi',
             about_btn: 'Uzzināt vairāk',
 
             // Why Us
