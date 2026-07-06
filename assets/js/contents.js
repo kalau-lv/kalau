@@ -694,9 +694,9 @@ const SITE = {
             detail_kv_team: 'Komanda',
             detail_kv_developer: 'Attīstītājs',
             detail_kv_type: 'Veids',
-            cta_title: 'Ir projekts prātā?',
-            cta_desc: 'Apspriedīsim, kā mēs varam realizēt jūsu arhitektūras vīziju ar mūsu pieredzi un aizrautību.',
-            cta_button: 'Sākt savu projektu',
+            cta_title: 'Nepieciešams projekts?',
+            cta_desc: 'Apspriedīsim, kā mēs varam realizēt jūsu vēlmes un iespējas.',
+            cta_button: 'Sazināties',
 
             // Teams page
             team_page_label: 'Cilvēki',
