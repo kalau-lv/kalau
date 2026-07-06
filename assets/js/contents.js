@@ -32,8 +32,8 @@ const SITE = {
         foundedYear: 2025,
         logoPath: 'assets/images/logo.png',
         socialLinks: {
-            instagram: '#',
-            facebook: '#',
+            instagram: 'https://www.instagram.com/kalau_architecture/',
+            facebook: 'https://www.facebook.com/profile.php?id=61586458139668',
         },
     },
 
