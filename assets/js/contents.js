@@ -552,7 +552,7 @@ const SITE = {
             hero_subtitle: 'Mēs radām modernus, funkcionālus un ilgtspējīgus arhitektūras risinājumus, kas pārvērš Jūsu vīziju realitātē. ',
             hero_cta1: 'Mūsu projekti',
             hero_cta2: 'Sazināties',
-            hero_scroll: 'Ritināt',
+            hero_scroll: '↓ Turpināt',
 
             // About
             about_label: 'Par mums',
