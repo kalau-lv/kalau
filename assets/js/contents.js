@@ -43,7 +43,7 @@ const SITE = {
     stats: {
         yearsExperience: 10,
         projectsDone: 50,
-        awardsWon: "100%",
+        about_stat3: "100%",
         teamSize: 15,
     },
 
