@@ -41,7 +41,7 @@ const SITE = {
     //  STATS  —  numbers shown in the About section
     // ============================================================
     stats: {
-        yearsExperience: 8,
+        yearsExperience: 10,
         projectsDone: 50,
         awardsWon: 100%,
         teamSize: 15,
