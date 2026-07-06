@@ -107,6 +107,7 @@ img[src=""], img:not([src]) { display: none; }
 .stat-item.animate { opacity: 1; transform: translateY(0); }
 .counter-number { display: inline-block; }
 .counter-number::after { content: '+'; }
+.counter-number.percent::after {    content: '%';}
 
 /* ==================== WHY CHOOSE US CARDS ==================== */
 .why-card {
