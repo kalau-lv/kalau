@@ -631,7 +631,7 @@ const SITE = {
             // Contact
             contact_label: 'Sazināties',
             contact_title: 'Sazinieties ar <span class="text-gradient">mums</span>',
-            contact_subtitle: 'Nepiciešams projekts? Apspriedīsim, kā mēs varam realizēt jūsu vēlmes un iespējas.',
+            contact_subtitle: 'Nepieciešams projekts? Apspriedīsim, kā mēs varam realizēt jūsu vēlmes un iespējas.',
             contact_legal: 'Uzņēmuma informācija',
             contact_email: 'Droši raksti',
             contact_phone: 'Uzzvani',
