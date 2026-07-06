@@ -479,7 +479,7 @@ const SITE = {
             form_email_placeholder: 'john@example.com',
             form_email_error: 'Please enter a valid email',
             form_phone_label: 'Phone Number',
-            form_phone_placeholder: '+1 (555) 000-0000',
+            form_phone_placeholder: '+371 28364517',
             form_message_label: 'Your Message *',
             form_message_placeholder: 'Tell us about your project...',
             form_message_error: 'Please enter your message',
