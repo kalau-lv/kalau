@@ -77,23 +77,27 @@ const SITE = {
     projects: [
         {
             id: 1,
-            title: { en: 'Modern Villa Jūrmala', lv: 'Modernā villa Jūrmalā' },
+            title: { en: 'Private house next to water', lv: 'Privātmāja pie ūdens' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house01/1-Ziemeli-1.png',
+                'assets/images/projects/house01/2austrumi.png',
+                'assets/images/projects/house01/3dienvidi2.png',
+                'assets/images/projects/house01/4dienvidi22.png'
+                 'assets/images/projects/house01/5rietumu.png'
+                'assets/images/projects/house01/ieeja.jpeg'
+                'assets/images/projects/house01/int.jpeg'
+                'assets/images/projects/house01/int_5 - Photo-2.png'
+                'assets/images/projects/house01/int67.png'
+                'assets/images/projects/house01/Istaba3.jpeg'
             ],
-            year: 2024,
-            location: { en: 'Jūrmala, Latvia', lv: 'Jūrmala, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Private Client', lv: 'Privāts klients' },
+            year: 2025,
+            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+           
             description: {
-                en: '<p>A stunning modern villa nestled among the pine forests of Jūrmala, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, natural stone cladding, and an open-plan living concept that seamlessly connects indoor and outdoor spaces. Sustainable materials and energy-efficient systems were prioritized throughout.</p>',
-                lv: '<p>Satriecoša moderna villa, kas iekļāvusies Jūrmalas priežu mežos, projektēta harmonijā ar dabisko ainavu, vienlaikus piedāvājot luksusa mūsdienu dzīvesveidu.</p><p>Dizainā iekļauti logi no grīdas līdz griestiem, dabīgā akmens apdare un atvērtā plānojuma koncepcija, kas nemanāmi savieno iekštelpu un āra telpas. Visā projektā prioritāte piešķirta ilgtspējīgiem materiāliem un energoefektīvām sistēmām.</p>'
+                en: '<p>A modern villa near river, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, and an open-plan living concept that seamlessly connects indoor and outdoor spaces.</p>',
+                lv: '<p>Moderna privātmāja pie upes, kas veidota, lai harmonizētu ar dabisko ainavu, vienlaikus piedāvājot mūsdienīgu dzīvesveidu.</p><p>Projetkā veidoti augsti stiklojumi un atvērta plānojuma koncepcija, kas nemanāmi savieno iekštelpu un ārtelpas. </p>'
             }
         },
         {
