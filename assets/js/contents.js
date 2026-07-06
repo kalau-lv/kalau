@@ -543,7 +543,7 @@ const SITE = {
             nav_testimonials: 'Atsauksmes',
             nav_contact: 'Kontakti',
             nav_team: 'Komanda',
-            nav_cta: 'Sazinies ar mums',
+            nav_cta: 'Sazināties',
 
             // Hero
             hero_tag: 'Mūsdienīga arhitektūras studija',
