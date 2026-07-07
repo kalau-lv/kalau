@@ -492,7 +492,7 @@ description: {
             contact_label: 'Get In Touch',
             contact_title: 'Contact <span class="text-gradient">Us</span>',
             contact_subtitle: "Ready to start your project? Let's discuss how we can bring your architectural vision to life.",
-            contact_legal: 'Company Information',
+            contact_legal: 'Info',
             contact_email: 'Email Us',
             contact_phone: 'Call Us',
             contact_follow: 'Follow Us',
