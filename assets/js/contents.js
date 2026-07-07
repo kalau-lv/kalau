@@ -121,10 +121,10 @@ description: {
           
             area: '220 m²',
             description: {
-                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p> The layout is designed to face the garden as much as possible, as well as to have an open view of the River from the 2nd floor.</p>',
-                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu. </p><p> Plānojums veidots, lai pēc iespējas tiktu vērsts uz dārza pusi, kā arī no 2.stāva atvērtu skatu uz Upi. </p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the garden as much as possible, as well as to have an open view of the River from the 2nd floor.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz dārza pusi, kā arī no 2.stāva atvērtu skatu uz Upi. </p>'
             }
-        },
+        }
         {
             id: 3,
             title: { en: 'Luxury Penthouse Suite', lv: 'Luksusa penthouse' },
