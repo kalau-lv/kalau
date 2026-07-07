@@ -127,22 +127,23 @@ description: {
         },
         {
             id: 3,
-            title: { en: 'Luxury Penthouse Suite', lv: 'Luksusa penthouse' },
-            type: 'apartments',
-            typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
+            title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house03/1-viz3.png',
+                'assets/images/projects/house03/2-viz2.png',
+                'assets/images/projects/house03/3-viz2.png',
+                'assets/images/projects/house03/4-viz-closeup.png',
+               ' assets/images/projects/house03/5-viz.png',
             ],
-            year: 2023,
+            year: 2026,
             location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Interiors',
-            developer: { en: 'Riga Luxury Living', lv: 'Riga Luxury Living' },
+          
+            area: '260 m²',
             description: {
-                en: '<p>A 280 m² penthouse suite on the top floor of a premium residential building, featuring panoramic views across Old Riga. The interior blends warm natural materials with refined minimalism.</p><p>Custom-designed furniture, Italian marble surfaces, and integrated smart home systems define the space. A private terrace wraps around two sides of the apartment.</p>',
-                lv: '<p>280 m² penthouse dzīvoklis augstākajā stāvā premium dzīvojamā ēkā ar panorāmas skatu uz Vecrīgu. Interjerā apvienoti silti dabiskie materiāli ar izsmalcinātu minimālismu.</p><p>Telpu raksturo pēc pasūtījuma izgatavoti mēbeļi, itāļu marmora virsmas un integrētas viedās mājas sistēmas. Privāta terase aptver divas dzīvokļa puses.</p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the garden as much as possible, as well as to have an open view of the River from the 2nd floor.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz dārza pusi, kā arī no 2.stāva atvērtu skatu uz Upi. </p>'
             }
         },
         {
