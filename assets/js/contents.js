@@ -418,7 +418,7 @@ description: {
             about_label: 'About Us',
             about_badge: 'Years',
             about_title: 'Designing Architecture for the <br><span class="text-gradient">Way You Live</span> ',
-            about_p1: 'Every project begins with a thorough understanding of our client's needs and the unique qualities of the site. Our goal is to create architecture that is timeless, functional, and sustainable, while preserving the individuality of each project.',
+            about_p1: 'Every project begins with a thorough understanding of our client\'s needs and the unique qualities of the site. Our goal is to create architecture that is timeless, functional, and sustainable, while preserving the individuality of each project.',
             about_p2: 'From the first sketch to construction supervision, we are by your side throughout the entire design process, ensuring every vision is transformed into a thoughtful, high-quality result.',
             about_stat1: 'Years Experience',
             about_stat2: 'Projects Done',
