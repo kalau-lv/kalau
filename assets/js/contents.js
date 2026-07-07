@@ -108,22 +108,21 @@ description: {
         },
         {
             id: 2,
-            title: { en: 'Corporate Office Tower', lv: 'Korporatīvais biroja tornis' },
-            type: 'commercial',
-            typeName: { en: 'Commercial', lv: 'Komerciālais' },
+            title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house02/01-exterior.png,
+                'assets/images/projects/house02/02-interior.png',
+            
             ],
-            year: 2024,
+            year: 2026,
             location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-            status: { en: 'In Progress', lv: 'Procesā' },
-            team: 'Kalau Studio B',
-            developer: { en: 'Baltic Development Group', lv: 'Baltic Development Group' },
+          
+            area: '220 m²',
             description: {
-                en: '<p>A landmark 18-story corporate tower in the heart of Riga\'s business district, designed with a double-skin glass facade for optimal energy performance and a striking visual presence on the city skyline.</p><p>The project includes flexible floor plates for diverse tenant requirements, a rooftop terrace, and ground-level retail and dining spaces that activate the surrounding streetscape.</p>',
-                lv: '<p>Ievērojams 18 stāvu korporatīvais tornis Rīgas biznesa rajona sirdī, projektēts ar dubultās ādas stikla fasādi optimālai energoefektivitātei un izteiksmīgai vizuālai klātbūtnei pilsētas panorāmā.</p><p>Projekts ietver elastīgus stāvu plānus dažādām nomnieku prasībām, jumta terasi un zemākā stāva tirdzniecības un ēdināšanas telpas.</p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p> The layout is designed to face the garden as much as possible, as well as to have an open view of the River from the 2nd floor.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu. </p><p> Plānojums veidots, lai pēc iespējas tiktu vērsts uz dārza pusi, kā arī no 2.stāva atvērtu skatu uz Upi. </p>'
             }
         },
         {
