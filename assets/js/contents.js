@@ -278,7 +278,7 @@ description: {
             area: '50 m²',
             description: {
                 en: '<p>Studio apartment in Roof floor. </p><p>The layout is designed to as much space as possible, by adding roof windows and creating more light in room.</p>',
-                lv: '<p>Studio tipa dzīvoklis jumta stāvā.</p><p>Plānojums veidots, lai pēc iespējas vairak izmantotu platību, paredzot jumta logus un ienesot papildus gaismu. </p>'
+                lv: '<p>Studio tipa dzīvoklis jumta stāvā.</p><p>Plānojums veidots, lai pēc iespējas vairāk izmantotu platību, paredzot jumta logus un ienesot papildus gaismu. </p>'
             }
         },
         {
