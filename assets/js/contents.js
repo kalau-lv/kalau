@@ -147,43 +147,42 @@ description: {
             }
         },
         {
-            id: 4,
-            title: { en: 'Mixed-Use Urban Complex', lv: 'Jauktas izmantošanas pilsētas komplekss' },
-            type: 'commercial',
-            typeName: { en: 'Mixed Use', lv: 'Jaukta izmantošana' },
+             id: 4,
+            title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house04/int1.jpeg',
+                'assets/images/projects/house04/int2.jpeg',
+                'assets/images/projects/house04/int3.jpeg',
             ],
             year: 2023,
-            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Urban Partners', lv: 'Urban Partners' },
+            location: { en: 'Baldone, Latvia', lv: 'Baldone, Latvija' },
+          
+            area: '180 m²',
             description: {
-                en: '<p>An ambitious mixed-use development combining residential apartments, office spaces, and ground-floor commercial areas within a cohesive architectural vision.</p><p>The complex features a central courtyard, green rooftop terraces, and a carefully considered pedestrian flow that connects the development to the surrounding urban fabric.</p>',
-                lv: '<p>Ambiciozs jauktas izmantošanas projekts, kas apvieno dzīvojamos dzīvokļus, biroja telpas un pirmā stāva komerciālās zonas vienotā arhitektūras vīzijā.</p><p>Kompleksā iekļauts centrālais pagalms, zaļās jumta terases un rūpīgi pārdomāta gājēju plūsma.</p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the forest as much as possible.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz meža pusi. </p>'
             }
         },
         {
             id: 5,
-            title: { en: 'Seaside Family Home', lv: 'Ģimenes māja pie jūras' },
+            title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house05/1.png',
+                'assets/images/projects/house05/2.png',
+                'assets/images/projects/house05/3.png',
+                'assets/images/projects/house05/4.png', 
             ],
-            year: 2023,
-            location: { en: 'Liepāja, Latvia', lv: 'Liepāja, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Private Client', lv: 'Privāts klients' },
+            year: 2026,
+            location: { en: 'Jūrmala, Latvia', lv: 'Jūrmala, Latvija' },
+          
+            area: '180 m²',
             description: {
-                en: '<p>A contemporary family home located steps from the Baltic Sea in Liepāja. Designed around the concept of "living with nature," the home maximizes coastal views and natural light.</p><p>Weather-resistant materials, heated floors, and triple-glazed windows ensure comfort in the Baltic climate while maintaining the home\'s clean, modern aesthetic.</p>',
-                lv: '<p>Mūsdienīga ģimenes māja dažu soļu attālumā no Baltijas jūras Liepājā. Projektēta ap koncepciju "dzīvot ar dabu", māja maksimāli izmanto piekrastes skatus un dabisko gaismu.</p><p>Laikapstākļiem izturīgi materiāli, grīdas apkure un trīskāršie logi nodrošina komfortu Baltijas klimatā.</p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the forest as much as possible.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz meža pusi. </p>'
             }
         },
         {
