@@ -674,8 +674,8 @@ description: {
             contact_title: 'Sazinieties ar <span class="text-gradient">mums</span>',
             contact_subtitle: 'Nepieciešams projekts? Apspriedīsim, kā mēs varam realizēt jūsu vēlmes un iespējas.',
             contact_legal: 'Info',
-            contact_email: 'Droši raksti',
-            contact_phone: 'Uzzvani',
+            contact_email: 'Uzraksti',
+            contact_phone: 'Piezvani',
             contact_follow: 'Pieseko',
 
             // Footer
