@@ -334,7 +334,10 @@ description: {
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
-           images: [    'assets/images/projects/house08/1.jpeg',
+           images: [    'assets/images/projects/house12/1-5.png',
+                    'assets/images/projects/house12/2-3.png',
+                    'assets/images/projects/house12/3-3.png', 
+                    'assets/images/projects/house12/4-3.png', 
   
 ],
            year: 2026,
