@@ -223,7 +223,7 @@ description: {
              title: { en: 'Private house renovation', lv: 'Privātmājas pārbūve' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
-            images: [    'assets/images/projects/house08/1.jpeg',
+            images: [    'assets/images/projects/house07/view3.png',
                 
             ],
             year: 2025,
