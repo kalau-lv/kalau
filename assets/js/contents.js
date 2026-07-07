@@ -557,7 +557,7 @@ description: {
             detail_kv_type: 'Type',
             cta_title: 'Have a Project in Mind?',
             cta_desc: 'Let\'s discuss how we can bring your architectural vision to life with our expertise and passion.',
-            cta_button: 'zStart Your Project',
+            cta_button: 'Contact Us',
 
             // Teams page
             team_page_label: 'The People',
