@@ -1094,6 +1094,8 @@
 
                 // Global function for onclick
                 window.openProjectDetail = function (projectId) {
+                    window.location.href = `projects.html?id=${projectId}`;
+return;
                     var p = homeProjects.find(function (x) { return x.id === projectId; });
                     if (!p) { console.warn('Project not found:', projectId, 'Available:', homeProjects.map(function (x) { return x.id; })); return; }
                     var lang = getLang();
