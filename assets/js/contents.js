@@ -503,7 +503,7 @@ description: {
             footer_aboutus: 'About Us',
             footer_services: 'Services',
             footer_tagline: 'We create modern, functional, and sustainable architectural solutions that turn visions into reality.',
-            footer_copyright: '© 2024 Kalau Architecture. All rights reserved.',
+            footer_copyright: '© 2025 Kalau Architecture. All rights reserved.',
             footer_privacy: 'Privacy Policy',
             footer_terms: 'Terms of Service',
 
