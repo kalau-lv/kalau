@@ -1480,12 +1480,10 @@
             // Key Values
             const kvContainer = document.getElementById('detail-key-values');
             const kvData = [
-                { label: dict.detail_kv_location || 'Location', value: project.location[lang] || project.location.en },
-                { label: dict.detail_kv_year || 'Year', value: project.year },
-                { label: dict.detail_kv_status || 'Status', value: project.status[lang] || project.status.en },
-                { label: dict.detail_kv_team || 'Team', value: project.team },
-                { label: dict.detail_kv_developer || 'Developer', value: project.developer[lang] || project.developer.en },
-                { label: dict.detail_kv_type || 'Type', value: project.typeName[lang] || project.typeName.en }
+               { label: dict.detail_kv_location || 'Location', value: project.location[lang] || project.location.en },
+    { label: dict.detail_kv_year || 'Year', value: project.year },
+    { label: dict.detail_kv_area || 'Area', value: project.area || '-' },
+    { label: dict.detail_kv_type || 'Project Type', value: project.typeName[lang] || project.typeName.en }
             ];
             kvContainer.innerHTML = kvData.map(kv => `
                 <div class="detail-kv">
