@@ -520,13 +520,14 @@ description: {
             detail_cta_btn: 'Contact Us',
             detail_kv_location: 'Location',
             detail_kv_year: 'Year',
+            detail_kv_area: 'Area',
             detail_kv_status: 'Status',
             detail_kv_team: 'Team',
             detail_kv_developer: 'Developer',
             detail_kv_type: 'Type',
             cta_title: 'Have a Project in Mind?',
             cta_desc: 'Let\'s discuss how we can bring your architectural vision to life with our expertise and passion.',
-            cta_button: 'Start Your Project',
+            cta_button: 'zStart Your Project',
 
             // Teams page
             team_page_label: 'The People',
@@ -699,6 +700,7 @@ description: {
             detail_cta_text: 'Interesē līdzīgs projekts?',
             detail_cta_btn: 'Sazināties ar mums',
             detail_kv_location: 'Atrašanās vieta',
+            detail_kv_area: 'Platība',
             detail_kv_year: 'Gads',
             detail_kv_status: 'Statuss',
             detail_kv_team: 'Komanda',
