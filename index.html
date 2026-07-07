@@ -1126,13 +1126,11 @@
                     document.getElementById('detail-cta-btn-text').textContent = t.ctaBtn;
 
                     // Key values
-                    var kvData = [
-                        { l: t.location, v: p.location[lang] || p.location.en },
-                        { l: t.year, v: p.year },
-                        { l: t.status, v: p.status[lang] || p.status.en },
-                        { l: t.team, v: p.team },
-                        { l: t.developer, v: p.developer[lang] || p.developer.en },
-                        { l: t.type, v: p.typeName[lang] || p.typeName.en }
+                   var kvData = [
+    { l: t.location, v: p.location[lang] || p.location.en },
+    { l: t.year, v: p.year },
+    { l: lang === 'lv' ? 'Platība' : 'Area', v: p.area },
+    { l: lang === 'lv' ? 'Projekta veids' : 'Project Type', v: p.typeName[lang] || p.typeName.en }
                     ];
                     document.getElementById('detail-key-values').innerHTML = kvData.map(function (kv) {
                         return '<div class="detail-kv"><span class="detail-kv-label">' + kv.l + '</span><span class="detail-kv-value">' + kv.v + '</span></div>';
