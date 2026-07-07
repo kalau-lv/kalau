@@ -112,7 +112,7 @@ description: {
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'assets/images/projects/house02/01-exterior.png,
+                'assets/images/projects/house02/01-exterior.png',
                 'assets/images/projects/house02/02-interior.png',
             
             ],
