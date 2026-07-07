@@ -92,14 +92,18 @@ const SITE = {
     'assets/images/projects/house01/int67.png',
     'assets/images/projects/house01/Istaba3.jpeg'
 ],
-            year: 2025,
-            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-             status: { en: 'In Progress', lv: 'Procesā' },
-            team: 'kalau-architecture',
-            developer: { en: 'Private Client', lv: 'Privats klients' },           
-            description: {
+           year: 2025,
+
+location: {
+    en: 'Riga, Latvia',
+    lv: 'Rīga, Latvija'
+},
+
+area: '245 m²',
+
+description: {
                 en: '<p>A modern villa near river, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, and an open-plan living concept that seamlessly connects indoor and outdoor spaces.</p>',
-                lv: '<p>Moderna privātmāja pie upes, kas veidota, lai harmonizētu ar dabisko ainavu, vienlaikus piedāvājot mūsdienīgu dzīvesveidu.</p><p>Projetkā veidoti augsti stiklojumi un atvērta plānojuma koncepcija, kas nemanāmi savieno iekštelpu un ārtelpas. </p>'
+                lv: '<p>Moderna privātmāja pie upes, kas veidota, lai harmonizētu ar dabisko ainavu, vienlaikus piedāvājot mūsdienīgu dzīvesveidu.</p><p>Projektā veidoti augsti stiklojumi un atvērta plānojuma koncepcija, kas nemanāmi savieno iekštelpu un ārtelpas. </p>'
             }
         },
         {
