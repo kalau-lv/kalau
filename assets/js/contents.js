@@ -187,82 +187,77 @@ description: {
         },
         {
             id: 6,
-            title: { en: 'Garden Estate Residence', lv: 'Dārza muižas rezidence' },
+            title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1600573472591-ee6c563a9eb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house06/1.png',
+                'assets/images/projects/house06/2.png',
+            
             ],
-            year: 2022,
-            location: { en: 'Sigulda, Latvia', lv: 'Sigulda, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Private Client', lv: 'Privāts klients' },
+            year: 2025,
+            location: { en: 'Baldone, Latvia', lv: 'Baldone, Latvija' },
+          
+            area: '180 m²',
             description: {
-                en: '<p>A graceful estate residence set within a mature garden landscape in Sigulda. The design draws inspiration from traditional Latvian country architecture while incorporating contemporary living standards.</p><p>Natural wood, stone, and copper accents blend seamlessly with the surrounding Gauja valley landscape.</p>',
-                lv: '<p>Eleganta muižas rezidence nobriedušā dārza ainavā Siguldā. Dizains iedvesmots no tradicionālās latviešu lauku arhitektūras, iekļaujot mūsdienu dzīves standartus.</p><p>Dabīgais koks, akmens un vara akcenti harmoniski iekļaujas apkārtējā Gaujas ielejas ainavā.</p>'
+                en: '<p>A simple barn house type private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the forest as much as possible.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz meža pusi. </p>'
             }
         },
         {
             id: 7,
-            title: { en: 'Downtown Apartment Block', lv: 'Centra dzīvokļu nams' },
-            type: 'apartments',
-            typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
+             title: { en: 'Private house renovation', lv: 'Privātmājas pārbūve' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                
             ],
-            year: 2022,
-            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio B',
-            developer: { en: 'City Residence SIA', lv: 'City Residence SIA' },
+            year: 2025,
+            location: { en: 'Marupe, Latvia', lv: 'Mārupe, Latvija' },
+          
+            area: '200 m²',
             description: {
-                en: '<p>A 6-story residential building in Riga\'s city center, offering 24 premium apartments ranging from compact studios to spacious 3-bedroom units.</p><p>The facade features a rhythmic pattern of balconies and vertical fins that provide solar shading while creating a distinctive streetscape presence.</p>',
-                lv: '<p>6 stāvu dzīvojamā ēka Rīgas centrā, piedāvājot 24 premium dzīvokļus no kompaktām studijām līdz plašiem 3 istabu dzīvokļiem.</p><p>Fasādē iekļauts ritmisks balkonu un vertikālu lamellu raksts, kas nodrošina saules aizsardzību, vienlaikus radot izteiksmīgu ielas ainu.</p>'
-            }
+                en: '<p>A private house with an open plan and spaciou living room. </p><p> In the renovation project we added 3 more rooms, while not interacting much with the existing architecture.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu un plašu dzīvojamo istabu</p><p>Pārbūves projektā mēs pievienojām vēl 3 istabas, nemainot kopējo ēkas arhitektūras stilu. </p>'
         },
         {
             id: 8,
-            title: { en: 'Boutique Hotel & Spa', lv: 'Butika viesnīca un spa' },
-            type: 'commercial',
-            typeName: { en: 'Commercial', lv: 'Komerciālais' },
+            title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1590490360182-c33d955f3420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house08/1.jpeg',
+                'assets/images/projects/house08/2.jpeg',
+                'assets/images/projects/house08/3-int.png'
+            
             ],
-            year: 2022,
-            location: { en: 'Cēsis, Latvia', lv: 'Cēsis, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Interiors',
-            developer: { en: 'Cēsis Hospitality Group', lv: 'Cēsis Hospitality Group' },
+            year: 2025,
+            location: { en: 'Jekabpils, Latvia', lv: 'Jēkabpils, Latvija' },
+          
+            area: '120 m²',
             description: {
-                en: '<p>A 32-room boutique hotel with full spa facilities in the historic town of Cēsis. The design carefully integrates a new contemporary structure with the existing 19th-century stone building.</p><p>Interior spaces feature locally sourced oak, linen, and ceramic details that celebrate Latvian craft traditions in a modern context.</p>',
-                lv: '<p>32 numuru butika viesnīca ar pilnu spa piedāvājumu vēsturiskajā Cēsu pilsētā. Dizains rūpīgi integrē jaunu mūsdienu struktūru ar esošo 19. gadsimta akmens ēku.</p><p>Interjera telpās iekļauti vietēji iegūti ozola, linu un keramikas detaļas, kas svin latviešu amatniecības tradīcijas mūsdienu kontekstā.</p>'
+                en: '<p>Private house with an open plan, a spacious terrace and a living room window.</p><p>The layout is compact, but fulfills all the necessary client programs, including 4 large rooms, an office, and a laundry room.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots kompakts, taču izpildot visu nepieciešamo klienta programmu, iekļaujot 4 guļamistabas, kabinetu, veļas telpu. </p>'
             }
         },
         {
             id: 9,
-            title: { en: 'Cultural Arts Center', lv: 'Kultūras un mākslas centrs' },
-            type: 'other',
-            typeName: { en: 'Cultural', lv: 'Kultūras' },
+             title: { en: 'Studio apartment', lv: 'Studio dzīvoklis' },
+            type: 'apartments',
+            typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
             images: [
-                'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house09/1-int.jpeg',
+                'assets/images/projects/house09/2-int.jpeg',
+                'assets/images/projects/house09/3-plans.jpeg', 
+            
             ],
-            year: 2021,
-            location: { en: 'Ventspils, Latvia', lv: 'Ventspils, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Ventspils Municipality', lv: 'Ventspils pašvaldība' },
+            year: 2025,
+            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
+          
+            area: '50 m²',
             description: {
-                en: '<p>A multifunctional cultural center featuring exhibition galleries, a 200-seat auditorium, artist studios, and community workshop spaces.</p><p>The building\'s sculptural form is wrapped in a perforated metal screen that filters daylight into the interior while creating dramatic shadow patterns throughout the day.</p>',
-                lv: '<p>Daudzfunkcionāls kultūras centrs ar izstāžu galerijām, 200 vietu auditoriju, mākslinieku studijām un kopienas darbnīcu telpām.</p><p>Ēkas skulpturālo formu aptver perforēts metāla ekrāns, kas filtrē dienasgaismu interjerā, vienlaikus radot dramatisku ēnu spēli visas dienas garumā.</p>'
+                en: '<p>Studio apartment in Roof floor. </p><p>The layout is designed to as much space as possible, by adding roof windows and creating more light in room.</p>',
+                lv: '<p>Studio tipa dzīvoklis jumta stāvā.</p><p>Plānojums veidots, lai pēc iespējas vairak izmantotu platību, paredzot jumta logus un ienesot papildus gaismu. </p>'
             }
         },
         {
