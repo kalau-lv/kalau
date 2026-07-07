@@ -473,7 +473,7 @@ description: {
             // Projects
             projects_label: 'Our Portfolio',
             projects_title: 'Featured <span class="text-gradient">Projects</span>',
-            projects_subtitle: 'Explore our curated collection of architectural masterpieces that showcase our commitment to excellence.',
+            projects_subtitle: 'Check out our works, which combine modern architecture, functionality, and an individual approach to each idea.',
             projects_btn: 'View All Projects',
             project1_cat: 'Residential',
             project1_title: 'Modern Villa',
