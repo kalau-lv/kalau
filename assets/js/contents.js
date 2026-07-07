@@ -429,7 +429,7 @@ description: {
             whyus_label: 'Why Kalau',
             whyus_title: 'Our Design <span class="text-gradient">Approach</span>',
             feature1_title: 'Individual approach',
-            feature1_desc: 'Each project is created by carefully studying the client's needs, lifestyle, and land characteristics to create a solution that is right specifically for you.',
+            feature1_desc: 'Each project is created by carefully studying the client\'s needs, lifestyle, and land characteristics to create a solution that is right specifically for you.',
             feature2_title: 'Thoughtful solutions',
             feature2_desc: 'In architecture, we combine aesthetics, functionality, and sustainable solutions, creating buildings that are comfortable in everyday life and retain their value in the long term.',
             feature3_title: '3D Design',
