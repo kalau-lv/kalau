@@ -219,6 +219,7 @@ description: {
             description: {
                 en: '<p>A private house with an open plan and spaciou living room. </p><p> In the renovation project we added 3 more rooms, while not interacting much with the existing architecture.</p>',
                 lv: '<p>Privātmāja ar atvērtu plānojumu un plašu dzīvojamo istabu</p><p>Pārbūves projektā mēs pievienojām vēl 3 istabas, nemainot kopējo ēkas arhitektūras stilu. </p>'
+                }
         },
         {
             id: 8,
