@@ -262,62 +262,68 @@ description: {
         },
         {
             id: 10,
-            title: { en: 'Minimal Forest Cabin', lv: 'Minimālā meža māja' },
+             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
             images: [
-                'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
+                'assets/images/projects/house10/1.png',
+                'assets/images/projects/house10/2.png',
+                'assets/images/projects/house10/3.png',
+                
             ],
-            year: 2021,
-            location: { en: 'Gauja, Latvia', lv: 'Gauja, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio A',
-            developer: { en: 'Private Client', lv: 'Privāts klients' },
+            year: 2026,
+            location: { en: 'Daugmale, Latvia', lv: 'Daugmale, Latvija' },
+          
+            area: '250 m²',
             description: {
-                en: '<p>A compact 85 m² forest cabin designed as a retreat from urban life. The structure is elevated on steel stilts to minimize ground impact and frame views of the surrounding birch forest.</p><p>Built primarily from cross-laminated timber (CLT), the cabin exemplifies our commitment to sustainable, low-impact architecture.</p>',
-                lv: '<p>Kompakta 85 m² meža māja, projektēta kā patvērums no pilsētas dzīves. Struktūra paaugstināta uz tērauda stabiem, lai minimizētu ietekmi uz zemi un ierāmētu apkārtējo bērzu meža skatus.</p><p>Būvēta galvenokārt no šķērslaminētas koksnes (CLT), māja ir piemērs mūsu apņēmībai ilgtspējīgai arhitektūrai.</p>'
+                en: '<p>A Private house with an open plan, a spacious terrace and a large living room window. </p><p>The layout is designed to face the river as much as possible.</p>',
+                lv: '<p>Privātmāja ar atvērtu plānojumu, plašu terasi un lielu viesistabas logu.</p><p>Plānojums veidots, lai pēc iespējas tiktu vērsts uz Upes pusi. </p>'
             }
         },
         {
             id: 11,
-            title: { en: 'Riverside Apartments', lv: 'Upes dzīvokļi' },
-            type: 'apartments',
-            typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
-            images: [
-                'https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
-            ],
-            year: 2020,
-            location: { en: 'Riga, Latvia', lv: 'Rīga, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio B',
-            developer: { en: 'Riverside Development SIA', lv: 'Riverside Development SIA' },
-            description: {
-                en: '<p>A waterfront residential development along the Daugava river, consisting of three interconnected buildings housing 68 apartments with shared amenities including a fitness center and residents\' garden.</p><p>Every apartment is oriented to capture river views, with generous balconies and floor-to-ceiling windows.</p>',
-                lv: '<p>Dzīvojamais projekts Daugavas krastmalā, kas sastāv no trim savienotām ēkām ar 68 dzīvokļiem un kopīgām ērtībām, tostarp fitnesa centru un iedzīvotāju dārzu.</p><p>Katrs dzīvoklis orientēts, lai uztvertu upes skatus, ar plašiem balkoniem un logiem no grīdas līdz griestiem.</p>'
+           title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
+           images: [
+    'assets/images/projects/house11/1.jpeg',
+    'assets/images/projects/house11/2.jpeg',
+    'assets/images/projects/house11/3.jpeg',
+],
+           year: 2022,
+
+location: {
+    en: 'Babite, Latvia',
+    lv: 'Babīte, Latvija'
+},
+
+area: '200 m²',
+
+description: {
+                en: '<p>A modern villa, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, and an open-plan living concept that seamlessly connects indoor and outdoor spaces.</p>',
+                lv: '<p>Moderna privātmāja, kas veidota, lai harmonizētu ar dabisko ainavu, vienlaikus piedāvājot mūsdienīgu dzīvesveidu.</p><p>Projektā veidoti augsti stiklojumi un atvērta plānojuma koncepcija, kas nemanāmi savieno iekštelpu un ārtelpas. </p>'
             }
         },
         {
             id: 12,
-            title: { en: 'Sports & Wellness Center', lv: 'Sporta un veselības centrs' },
-            type: 'other',
-            typeName: { en: 'Recreational', lv: 'Atpūtas' },
-            images: [
-                'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
-                'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'
-            ],
-            year: 2020,
-            location: { en: 'Jūrmala, Latvia', lv: 'Jūrmala, Latvija' },
-            status: { en: 'Completed', lv: 'Pabeigts' },
-            team: 'Kalau Studio B',
-            developer: { en: 'Jūrmala Sports Foundation', lv: 'Jūrmalas Sporta fonds' },
-            description: {
-                en: '<p>A state-of-the-art sports and wellness facility featuring an Olympic-size swimming pool, gym, yoga studios, and a thermal spa area.</p><p>The building\'s undulating roof form is inspired by Baltic Sea waves. Extensive use of natural daylight reduces energy consumption while creating uplifting interior environments.</p>',
-                lv: '<p>Modernskākais sporta un veselības centrs ar olimpisko izmēru peldbaseinu, sporta zāli, jogas studijām un termālo spa zonu.</p><p>Ēkas viļņveidīgā jumta forma iedvesmota no Baltijas jūras viļņiem. Plašā dabiskās dienasgaismas izmantošana samazina enerģijas patēriņu, vienlaikus radot iedvesmojošu iekštelpu vidi.</p>'
+            title: { en: 'Private house', lv: 'Privātmāja' },
+            type: 'private-houses',
+            typeName: { en: 'Private House', lv: 'Privātmāja' },
+           images: [
+  
+],
+           year: 2026,
+
+location: {
+    en: 'Jurmala, Latvia',
+    lv: 'Jūrmala, Latvija'
+},
+
+area: '240 m²',
+
+description: {
+                en: '<p>A modern villa, designed to harmonize with the natural landscape while offering luxurious contemporary living.</p><p>The design features floor-to-ceiling glazing, and an open-plan living concept that seamlessly connects indoor and outdoor spaces.</p>',
+                lv: '<p>Moderna privātmāja, kas veidota, lai harmonizētu ar dabisko ainavu, vienlaikus piedāvājot mūsdienīgu dzīvesveidu.</p><p>Projektā veidoti augsti stiklojumi un atvērta plānojuma koncepcija, kas nemanāmi savieno iekštelpu un ārtelpas. </p>'
             }
         },
     ],
