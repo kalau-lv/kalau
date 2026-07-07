@@ -77,6 +77,8 @@ const SITE = {
     projects: [
         {
             id: 1,
+            featured: true,
+            homepageOrder: 100,
             title: { en: 'Private house next to water', lv: 'Privātmāja pie ūdens' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -108,6 +110,8 @@ description: {
         },
         {
             id: 2,
+            featured: true,
+              homepageOrder: 99,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -127,6 +131,8 @@ description: {
         },
         {
             id: 3,
+            featured: true,
+                homepageOrder: 98,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -148,6 +154,8 @@ description: {
         },
         {
              id: 4,
+            featured: true,
+             homepageOrder: 97,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -167,6 +175,8 @@ description: {
         },
         {
             id: 5,
+            featured: true,
+             homepageOrder: 96,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -187,6 +197,8 @@ description: {
         },
         {
             id: 6,
+             featured: true,
+            homepageOrder: 95,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -206,6 +218,8 @@ description: {
         },
         {
             id: 7,
+             featured: false,
+            homepageOrder: 94,
              title: { en: 'Private house renovation', lv: 'Privātmājas pārbūve' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -223,6 +237,8 @@ description: {
         },
         {
             id: 8,
+             featured: false,
+            homepageOrder: 93,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -243,6 +259,8 @@ description: {
         },
         {
             id: 9,
+             featured: false,
+            homepageOrder: 92,
              title: { en: 'Studio apartment', lv: 'Studio dzīvoklis' },
             type: 'apartments',
             typeName: { en: 'Apartment', lv: 'Dzīvoklis' },
@@ -263,6 +281,8 @@ description: {
         },
         {
             id: 10,
+             featured: false,
+            homepageOrder: 91,
              title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -283,6 +303,8 @@ description: {
         },
         {
             id: 11,
+             featured: false,
+            homepageOrder: 90,
            title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
@@ -307,6 +329,8 @@ description: {
         },
         {
             id: 12,
+            featured: false,
+            homepageOrder: 89,
             title: { en: 'Private house', lv: 'Privātmāja' },
             type: 'private-houses',
             typeName: { en: 'Private House', lv: 'Privātmāja' },
