@@ -198,7 +198,23 @@
                 </div>
 
                 <!-- Mobile: Language + Menu Button -->
-                <div class="flex lg:hidden items-center gap-2 shrink-0">
+              <div class="flex lg:hidden flex-col items-end gap-2 shrink-0">
+
+                    <button id="mobile-menu-btn"
+                      class="text-white p-2.5 shrink-0 focus:outline-none transition-colors duration-300"
+                        aria-label="Toggle menu">
+                        <svg class="w-7 h-7 hamburger-icon transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-7 h-7 close-icon hidden transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                  
                     <button id="mobile-lang-toggle"
                       class="flex items-center gap-1 px-2 py-1 rounded-full border border-white/20 transition-all duration-300 shrink-0"
                         aria-label="Switch language">
@@ -214,20 +230,7 @@
                         </span>
                         <span class="text-[10px] font-bold tracking-wider mobile-lang-text">EN</span>
                     </button>
-                    <button id="mobile-menu-btn"
-                       class="text-white p-1.5 shrink-0 focus:outline-none transition-colors duration-300"
-                        aria-label="Toggle menu">
-                        <svg class="w-7 h-7 hamburger-icon transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                        <svg class="w-7 h-7 close-icon hidden transition-transform duration-300" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
+                  
                 </div>
             </nav>
         </div>
