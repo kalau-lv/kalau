@@ -145,15 +145,22 @@ const mobileLangEN = document.getElementById('mobile-lang-en');
 if (mobileLangLV) {
     mobileLangLV.addEventListener('click', () => {
         applyLanguage('lv', true);
+
+        mobileMenu.classList.remove('open');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
     });
 }
 
 if (mobileLangEN) {
     mobileLangEN.addEventListener('click', () => {
         applyLanguage('en', true);
+
+        mobileMenu.classList.remove('open');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
     });
 }
-
     // Apply stored language on load
     applyLanguage(currentLang, false);
 
