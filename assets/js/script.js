@@ -139,13 +139,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================== LANGUAGE SWITCHER - MOBILE (simple toggle) ====================
-    const mobileLangToggle = document.getElementById('mobile-lang-toggle');
-    if (mobileLangToggle) {
-        mobileLangToggle.addEventListener('click', () => {
-            const newLang = currentLang === 'en' ? 'lv' : 'en';
-            applyLanguage(newLang, true);
-        });
-    }
+const mobileLangLV = document.getElementById('mobile-lang-lv');
+const mobileLangEN = document.getElementById('mobile-lang-en');
+
+if (mobileLangLV) {
+    mobileLangLV.addEventListener('click', () => {
+        applyLanguage('lv', true);
+    });
+}
+
+if (mobileLangEN) {
+    mobileLangEN.addEventListener('click', () => {
+        applyLanguage('en', true);
+    });
+}
 
     // Apply stored language on load
     applyLanguage(currentLang, false);
